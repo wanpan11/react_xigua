@@ -44,7 +44,7 @@ class Mycomponent extends React.Component {
     render() {
         const { isLovely } = this.state
         return (
-            <div style={{ margin: '12px 8px' }}>
+            <div style={{ marginBottom: '12px' }}>
                 <DatePicker />
                 <div onClick={this.clickDemo} style={{ width: '100%', fontSize: '20px', marginTop: '12px' }}>今天是{isLovely ? '可爱' : '暴躁'}四四酱</div>
             </div>

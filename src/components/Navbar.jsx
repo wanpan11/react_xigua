@@ -5,12 +5,6 @@ import '../style/Nav.scss'
 
 class Navbar extends React.Component {
 
-    //组件状态 
-    state = {
-        name: '',
-        status: ''
-    }
-
     //定义props 传入参数的数据类型
     static propTypes = {
         tabData: PropTypes.array
@@ -22,56 +16,54 @@ class Navbar extends React.Component {
     }
 
     //#region 生命周期
-    constructor(props) {
-        super(props)
-        console.log('constructor');
-    }
+    // constructor(props) {
+    //     super(props)
+    // }
 
     //是否应该更新组件
     shouldComponentUpdate() {
-        console.log('shouldComponentUpdate');
+        // console.log('shouldComponentUpdate');
         return true;
     }
 
     //组件即将挂载完成
     UNSAFE_componentWillMount() {
-        console.log('UNSAFE_componentWillMount');
+        // console.log('UNSAFE_componentWillMount');
     }
 
     //组件挂载完毕时调用一次
     componentDidMount() {
-        console.log('componentDidMount');
+        // console.log('componentDidMount');
         const body = document.getElementsByTagName('body')[0]
         body.style.background = '#f2f2f2';
     }
 
     //组件更新完毕时调用
     componentDidUpdate(preProps, preState) {
-        console.log('componentDidUpdate', preProps, preState);
+        // console.log('componentDidUpdate', preProps, preState);
     }
 
     //组件将要被卸载时调用
     componentWillUnmount() {
-        console.log('componentWillUnmount，啊 我要被卸载了~~');
+        // console.log('componentWillUnmount，啊 我要被卸载了~~');
     }
 
     //初始化时、state更新时调用
     render() {
 
-        const { navbar } = this.props
+        const { navbarObj, setNavbarStatus } = this.props
 
         return (
             <div className='navbarBox'>
                 <ul className={'navbar'}>
                     {
                         /* jsx 内部只能书写表达式(有返回值的) 不能书写公式(既逻辑判断之类)   */
-                        navbar.map((itme) => {
-                            // return <li key={index} onClick={this.clickTab} ref={c => this[`li${index}`] = c}>{itme}</li>
-                            return <li key={itme.id} onClick={this.clickTab} >{itme.name}</li>
+                        navbarObj.map((itme) => {
+                            return <li key={itme.id} onClick={setNavbarStatus(itme)} className={itme.status ? 'selected' : ''}>{itme.name}</li>
                         })
                     }
                 </ul>
-                <div onClick={this.unmountThis}>卸载组件</div>
+                <div onClick={this.unmountThis} style={{ fontSize: '12px' }}>卸载组件</div>
             </div>
         )
     }
@@ -79,18 +71,18 @@ class Navbar extends React.Component {
     //#endregion
 
     //点击事件  所有传给React的事件回调函数 都会接受一个event对象 
-    clickTab = (event) => {
-        const crrenteNode = event.target
-        const navbarLi = document.getElementsByClassName('navbar')[0].childNodes
-        if (crrenteNode.className === 'selected') {
-            return
-        } else {
-            navbarLi.forEach(li => {
-                li.className = ''
-            })
-            crrenteNode.className = 'selected'
-        }
-    }
+    /*  clickTab = (event) => {
+         const crrenteNode = event.target
+         const navbarLi = document.getElementsByClassName('navbar')[0].childNodes
+         if (crrenteNode.className === 'selected') {
+             return
+         } else {
+             navbarLi.forEach(li => {
+                 li.className = ''
+             })
+             crrenteNode.className = 'selected'
+         }
+     } */
 
     //卸载组件
     unmountThis = () => {
