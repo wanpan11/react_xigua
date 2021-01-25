@@ -3,26 +3,32 @@ import React from 'react';
 
 //引入样式、工具包
 import axios from 'axios'
+// import { dataUtil } from './tools/dataUtil'
 import './style/initStyle.scss'
 
 //引入组件
-import { Navbar } from './components/Navbar';
-import { Mycomponent } from './components/test_1';
+import { NavBar } from './components/Navbar/NavbarComponent';
+import { Mycomponent } from './components/test/test_1';
+import { Button } from 'antd'
 
 //引入数据
-import navbarObj from './navbar.json'
+import navbar from './data/navbar.json'
+
+//设置cookie
 document.cookie = 'name = wanpan'
 
 export default class App extends React.Component {
 
     state = {
-        navbarObj: navbarObj
+        navbarList: navbar
     }
 
     getNavbarData = () => {
-        axios.get('http://localhost:3000/index.html').then(
+        axios.get('http://localhost:3000/api/getNavbarData').then(
             response => {
                 console.log('success', response.data);
+                const newNavbar = response.data
+                this.setState({ navbarList: newNavbar })
             },
             error => {
                 console.log('failed', error);
@@ -31,28 +37,24 @@ export default class App extends React.Component {
     }
 
     setNavbarStatus = (itme) => {
-        const { navbarObj } = this.state
         return () => {
+            const { navbarList } = this.state
             const { id } = itme
-            navbarObj.forEach(ele => {
-                if (ele.id === id) {
-                    ele.status = true
-                } else {
-                    ele.status = false
-                }
+            navbarList.forEach(ele => {
+                ele.id === id ? ele.status = true : ele.status = false
             })
-            this.setState({ navbarObj: navbarObj })
+            this.setState({ navbarList: navbarList })
         }
     }
 
     render() {
-        const { navbarObj } = this.state
+        const { navbarList } = this.state
         return (
             <div>
-                <Navbar navbarObj={navbarObj} setNavbarStatus={this.setNavbarStatus} />
+                <NavBar navbar={navbarList} setNavbarStatus={this.setNavbarStatus} />
                 <div style={{ width: 'calc(100% - 16px)', background: '#fff', margin: '12px 8px', padding: '12px' }}>
                     <Mycomponent />
-                    <button onClick={this.getNavbarData}>点我获取数据</button>
+                    <Button type="primary" onClick={this.getNavbarData}>点我获取数据</Button>
                 </div>
             </div>
         )
