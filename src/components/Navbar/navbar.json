@@ -1,22 +1,22 @@
 [
     {
         "id": "001",
-        "name": "list1",
+        "name": "首页",
         "status": true
     },
     {
         "id": "002",
-        "name": "list2",
+        "name": "案例",
         "status": false
     },
     {
         "id": "003",
-        "name": "list3",
+        "name": "分享",
         "status": false
     },
     {
         "id": "004",
-        "name": "list4",
+        "name": "关于",
         "status": false
     }
 ]

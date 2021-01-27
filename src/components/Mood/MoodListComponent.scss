@@ -1,0 +1,36 @@
+.moodComponent {
+    width: calc(100% - 16px);
+    background: #fff;
+    margin: 12px 8px;
+    padding: 12px;
+    border-radius: 8px;
+
+    .moodComponent_head {
+        // padding: 8px 0;
+    }
+
+    .moodComponent_container {
+        padding: 12px 0;
+        font-size: 16px;
+
+        .moodComponent_container_itme {
+            padding: 8px 0;
+
+            span {
+                margin-left: 8px;
+            }
+        }
+    }
+
+    .moodComponent_foot {
+        display: flex;
+        flex-direction: row-reverse;
+        padding-top: 12px;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+
+        button {
+            margin-left: 8px;
+        }
+    }
+
+}

@@ -71,9 +71,11 @@ class Mycomponent extends React.Component {
     render() {
         const { moodList } = this.state
         return (
-            <div>
+                <div style={{ width: 'calc(100% - 16px)', background: '#fff', margin: '12px 8px', padding: '12px' }}>
+                <Mycomponent />
                 <Input placeholder="今天的心吗？" onKeyUp={this.setMood} />
                 <MoodBox setMoodListCallBack={this.setMoodListCallBack} moodList={moodList} />
+                <Button type="primary" onClick={this.getNavbarData}>点我获取数据</Button>
             </div>
         )
     }
@@ -102,6 +104,19 @@ class Mycomponent extends React.Component {
         moodList.push(item)
         this.setState({ moodList: moodList })
         target.value = ''
+    }
+
+    getNavbarData = () => {
+        axios.get('http://localhost:3000/api/getNavbarData').then(
+            response => {
+                console.log('success', response.data);
+                const newNavbar = response.data
+                this.setState({ navbarList: newNavbar })
+            },
+            error => {
+                console.log('failed', error);
+            }
+        )
     }
 }
 
