@@ -21,11 +21,6 @@ export default class App extends Component {
         loading: false
     }
 
-    componentDidMount() {
-        const body = document.getElementsByTagName('body')[0];
-        body.style['backgroundColor'] = '#f2f2f2';
-    }
-
     render() {
         const { loading } = this.state
         return (
@@ -37,6 +32,7 @@ export default class App extends Component {
         )
     }
 
+    //加载动画回调
     isLoading = () => {
         return (boolean) => {
             this.setState({ loading: boolean })
