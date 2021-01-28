@@ -49,12 +49,14 @@ class MoodListComponent extends Component {
     }
 
     getTodayTask = () => {
-        axios.get('/api/getNavbarData').then(
+        axios.get('/api/getTodayTask').then(
             response => {
+                debugger
                 console.log(response.data);
                 PubSub.publish('defaultMood', response.data)
             },
             error => {
+                debugger
                 console.log(error);
             }
         )

@@ -10,6 +10,7 @@ export default class MoodBox extends Component {
         moodList: [],
         firstLoad: true
     }
+
     componentDidMount() {
         const { moodList } = this.state
         PubSub.subscribe('newMood', (msg, newMoodObj) => {
@@ -38,7 +39,7 @@ export default class MoodBox extends Component {
                         moodList.map(ele => {
                             return (
                                 <div key={ele.id} className="moodComponent_container_itme">
-                                    <Checkbox size="small" checked={ele.disabled} onClick={this.setMoodListCallBack(ele)} />
+                                    <Checkbox size="small" checked={ele.checked} onClick={this.setMoodListCallBack(ele)} />
                                     <span onClick={this.clickDemo}>{ele.text}</span>
                                 </div>
                             )
@@ -66,11 +67,5 @@ export default class MoodBox extends Component {
             this.setState({ moodList: moodList })
         }
     }
-
-    handleDisabledChange = (disabled) => {
-        this.setState({ disabled });
-    }
-
-
 
 }
