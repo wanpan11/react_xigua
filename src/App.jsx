@@ -21,15 +21,18 @@ export default class App extends Component {
 
     state = {
         loading: false,
-        tips: false
+        tips: {
+            tips: false,
+            msg: ''
+        }
     }
 
     componentDidMount() {
 
         PubSub.subscribe('clearTodayTaskError', (_, obj) => {
-            this.setState({ tips: obj.tips });
+            this.setState({ tips: { tips: obj.tips, msg: obj.msg } });
             setTimeout(() => {
-                this.setState({ tips: false });
+                this.setState({ tips: { tips: false, msg: '' } });
             }, 500);
         })
 
@@ -51,7 +54,7 @@ export default class App extends Component {
                     <MoodListComponent />
                 </div>
                 { loading ? <LoadingComponent /> : ''}
-                { tips ? <TipsBox /> : ''}
+                { tips.tips ? <TipsBox msg={tips.msg} /> : ''}
             </div>
         )
     }

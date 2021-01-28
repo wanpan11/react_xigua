@@ -12,10 +12,10 @@ export default class MoodBox extends Component {
     }
 
     componentDidMount() {
-        const { moodList } = this.state
 
         //处理input 输入内容
         PubSub.subscribe('newMood', (msg, newMoodObj) => {
+            const { moodList } = this.state
             moodList.push(newMoodObj)
             this.setState({ moodList: moodList, firstLoad: false })
         })
@@ -50,7 +50,7 @@ export default class MoodBox extends Component {
                             return (
                                 <div key={ele.id} className="moodComponent_container_itme">
                                     <Checkbox size="small" checked={ele.checked} onClick={this.setMoodListCallBack(ele)} />
-                                    <span onClick={this.clickDemo}>{ele.text}</span>
+                                    <span onClick={this.clickDemo} className="moodComponent_container_itme_text">{ele.text}</span>
                                 </div>
                             )
                         })

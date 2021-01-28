@@ -5,9 +5,9 @@
     padding: 12px;
     border-radius: 4px;
 
-    .moodComponent_head {
-        // padding: 8px 0;
-    }
+    /* .moodComponent_head {
+        padding: 8px 0;
+    } */
 
     .moodComponent_container {
         padding: 12px 0;
@@ -17,13 +17,13 @@
             padding: 12px 0 8px 0;
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-            span {
+            .moodComponent_container_itme_text {
                 margin-left: 8px;
             }
         }
     }
 
-    .moodComponent_container :last-child {
+    .moodComponent_container .moodComponent_container_itme:last-child {
         border-bottom: none;
 
     }

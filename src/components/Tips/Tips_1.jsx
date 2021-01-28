@@ -3,10 +3,10 @@ import './Tips_1.scss'
 
 export default class TipsBox extends Component {
     render() {
+        const { msg } = this.props
         return (
             <div className="Tips_1_box">
-                <h3>标题</h3>
-                <span>你想干吗？</span>
+                <h3>{msg}</h3>
             </div>
         )
     }
