@@ -20,3 +20,24 @@ ol {
     fill: currentColor;
     overflow: hidden;
 }
+
+@media screen and (min-width: 1200px) {
+
+    .app_model {
+
+        .app_head {
+            background-color: #2A284F;
+
+            .navbarBox {
+                width: 1200px;
+                margin: 0 auto;
+            }
+        }
+
+        .app_container {
+            width: 1200px;
+            margin: 0 auto;
+            ;
+        }
+    }
+}

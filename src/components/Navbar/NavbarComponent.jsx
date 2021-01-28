@@ -4,6 +4,7 @@ import './Navbar.scss'
 
 //引入数据
 import navbar from './navbar.json'
+import logo from '../../img/logo.png';
 
 export default class NavBar extends Component {
 
@@ -15,6 +16,9 @@ export default class NavBar extends Component {
         const { navbarList } = this.state
         return (
             <div className='navbarBox'>
+                <div className="navbarBox_logo">
+                    <img src={logo} alt="logo" />
+                </div>
                 <ul className={'navbar'}>
                     {
                         navbarList.map((itme) => {

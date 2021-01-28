@@ -47,16 +47,14 @@ export default class MoodListComponent extends Component {
     }
 
     getTodayTask = () => {
-        const { isLoading } = this.props
-        isLoading(true);
+        PubSub.publish('loading', { loading: true })
         axios.get('/api/getTodayTask').then(
             response => {
-                isLoading(false);
+                PubSub.publish('loading', { loading: false })
                 console.log(response.data);
                 PubSub.publish('defaultMood', response.data)
             },
             error => {
-                isLoading(false);
                 console.log(error);
             }
         )

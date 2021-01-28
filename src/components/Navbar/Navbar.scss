@@ -1,51 +1,38 @@
 .navbarBox {
-    position: relative;
-    background-color: black;
+    background-color: #2A284F;
     display: flex;
+
+    .navbarBox_logo {
+        position: relative;
+        width: 52px;
+        height: 48px;
+
+        img {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            top: calc(50% - 12px);
+            left: calc(50% - 12px);
+        }
+    }
 
     .navbar {
         display: flex;
         font-size: 18px;
         font-weight: bold;
+        width: calc(100% - 52px);
+        max-width: 400px;
 
         li {
             color: #fff;
+            text-align: center;
             line-height: 48px;
-            padding: 4px 60px;
+            width: 25%;
         }
 
-    }
-
-    div {
-        position: absolute;
-        right: 0;
-        color: #fff;
-        line-height: 48px;
-        padding: 4px 60px;
     }
 
     .selected {
         color: yellow !important;
-        border-bottom: 4px solid yellow;
-    }
-}
-
-
-@media screen and (max-width: 414px) {
-
-    .navbarBox {
-        .navbar {
-
-            li {
-                padding: 4px 20px;
-                font-size: 16px;
-            }
-        }
-
-        div {
-            padding: 4px 12px;
-            font-size: 16px;
-            font-size: 12px;
-        }
     }
 }

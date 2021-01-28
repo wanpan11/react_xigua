@@ -13,22 +13,28 @@ export default class MoodBox extends Component {
 
     componentDidMount() {
         const { moodList } = this.state
+
+        //处理input 输入内容
         PubSub.subscribe('newMood', (msg, newMoodObj) => {
-            console.log(newMoodObj);
             moodList.push(newMoodObj)
             this.setState({ moodList: moodList, firstLoad: false })
         })
+
+        //处理默认展示字段
         PubSub.subscribe('defaultMood', (msg, defaultMoodArr) => {
-            console.log(defaultMoodArr);
             this.setState({ moodList: defaultMoodArr, firstLoad: false })
         })
+
+        //处理清除任务
         PubSub.subscribe('clearTodayTask', (msg, defaultMoodArr) => {
-            console.log(defaultMoodArr);
-            debugger
-            moodList.length === 0 ?
-                alert('暂无任务哦~')
-                :
+            const { moodList } = this.state
+            if (moodList.length === 0) {
+                PubSub.publish('clearTodayTaskError', { msg: '暂无任务~~', tips: true })
+
+            } else {
                 this.setState({ moodList: [], firstLoad: false })
+                PubSub.publish('clearTodayTaskSuccess', { msg: '清除成功！', tips: true })
+            }
         })
     }
 

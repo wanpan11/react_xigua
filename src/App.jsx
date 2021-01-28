@@ -1,5 +1,6 @@
 //引入依赖
 import React, { Component } from 'react';
+import PubSub from 'pubsub-js'
 
 //引入样式、工具包
 import './style/initStyle.scss'
@@ -8,6 +9,7 @@ import './style/initStyle.scss'
 import NavBar from './components/Navbar/NavbarComponent';
 import MoodListComponent from './components/Mood/MoodListComponent';
 import LoadingComponent from './components/Loading/LoadingComponent';
+import TipsBox from './components/Tips/Tips_1';
 
 
 console.log(LoadingComponent);
@@ -18,25 +20,40 @@ document.cookie = 'name = wanpan'
 export default class App extends Component {
 
     state = {
-        loading: false
+        loading: false,
+        tips: false
+    }
+
+    componentDidMount() {
+
+        PubSub.subscribe('clearTodayTaskError', (_, obj) => {
+            this.setState({ tips: obj.tips });
+            setTimeout(() => {
+                this.setState({ tips: false });
+            }, 500);
+        })
+
+        PubSub.subscribe('loading', (_, obj) => {
+            this.setState({ loading: obj.loading });
+        })
     }
 
     render() {
-        const { loading } = this.state
+
+        const { loading, tips } = this.state
+
         return (
-            <div>
-                <NavBar />
-                <MoodListComponent isLoading={this.isLoading()} />
+            <div className="app_model">
+                <div className="app_head">
+                    <NavBar />
+                </div>
+                <div className="app_container">
+                    <MoodListComponent />
+                </div>
                 { loading ? <LoadingComponent /> : ''}
+                { tips ? <TipsBox /> : ''}
             </div>
         )
-    }
-
-    //加载动画回调
-    isLoading = () => {
-        return (boolean) => {
-            this.setState({ loading: boolean })
-        }
     }
 
 
