@@ -32,31 +32,28 @@ class MoodListComponent extends Component {
         const target = event.target
         const keyCode = event.keyCode
         const value = target.value
+
         let newMoodObj = {};
         if (keyCode === 13) {
-            debugger
-            nanoid()
             newMoodObj = {
                 id: nanoid(),
-                disabled: false,
+                checked: false,
                 text: value
             }
         } else {
             return;
         }
-        PubSub.publish('newMood', newMoodObj)
-        target.value = ''
+        target.value = '';
+        PubSub.publish('newMood', newMoodObj);
     }
 
     getTodayTask = () => {
         axios.get('/api/getTodayTask').then(
             response => {
-                debugger
                 console.log(response.data);
                 PubSub.publish('defaultMood', response.data)
             },
             error => {
-                debugger
                 console.log(error);
             }
         )

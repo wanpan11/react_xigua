@@ -55,10 +55,10 @@ export default class MoodBox extends Component {
             const { id } = itme
             moodList.forEach(ele => {
                 if (ele.id === id) {
-                    if (ele.disabled) {
-                        ele.disabled = false
+                    if (ele.checked) {
+                        ele.checked = false
                     } else {
-                        ele.disabled = true
+                        ele.checked = true
                     }
                 } else {
                     return

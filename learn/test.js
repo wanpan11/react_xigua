@@ -9,7 +9,6 @@ const wanpan1 = wanpan(1)
 
 testObj.wanpan1 = wanpan1
 
-debugger
 fetch('./person.json').then(res => {
     res.json()
 }).then(json => {

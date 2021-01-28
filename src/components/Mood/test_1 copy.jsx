@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import 'antd/dist/antd.css';
 import './test_1.scss'
 
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 import MoodBox from './MoodItem';
 
 //#region region
@@ -71,7 +71,7 @@ class Mycomponent extends React.Component {
     render() {
         const { moodList } = this.state
         return (
-                <div style={{ width: 'calc(100% - 16px)', background: '#fff', margin: '12px 8px', padding: '12px' }}>
+            <div style={{ width: 'calc(100% - 16px)', background: '#fff', margin: '12px 8px', padding: '12px' }}>
                 <Mycomponent />
                 <Input placeholder="今天的心吗？" onKeyUp={this.setMood} />
                 <MoodBox setMoodListCallBack={this.setMoodListCallBack} moodList={moodList} />
@@ -91,8 +91,6 @@ class Mycomponent extends React.Component {
         const value = target.value
         let item = {};
         if (keyCode === 13) {
-            debugger
-            nanoid()
             item = {
                 id: nanoid(),
                 disabled: false,
