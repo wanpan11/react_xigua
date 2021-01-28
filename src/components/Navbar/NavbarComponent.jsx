@@ -5,7 +5,7 @@ import './Navbar.scss'
 //引入数据
 import navbar from './navbar.json'
 
-class NavBar extends Component {
+export default class NavBar extends Component {
 
     state = {
         navbarList: navbar
@@ -39,4 +39,3 @@ class NavBar extends Component {
 
 }
 
-export { NavBar };

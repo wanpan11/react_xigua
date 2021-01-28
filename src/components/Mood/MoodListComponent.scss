@@ -3,7 +3,7 @@
     background: #fff;
     margin: 12px 8px;
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 4px;
 
     .moodComponent_head {
         // padding: 8px 0;
@@ -14,12 +14,18 @@
         font-size: 16px;
 
         .moodComponent_container_itme {
-            padding: 8px 0;
+            padding: 12px 0 8px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
             span {
                 margin-left: 8px;
             }
         }
+    }
+
+    .moodComponent_container :last-child {
+        border-bottom: none;
+
     }
 
     .moodComponent_foot {

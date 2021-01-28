@@ -24,7 +24,11 @@ export default class MoodBox extends Component {
         })
         PubSub.subscribe('clearTodayTask', (msg, defaultMoodArr) => {
             console.log(defaultMoodArr);
-            this.setState({ moodList: [], firstLoad: false })
+            debugger
+            moodList.length === 0 ?
+                alert('暂无任务哦~')
+                :
+                this.setState({ moodList: [], firstLoad: false })
         })
     }
 

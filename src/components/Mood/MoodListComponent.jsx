@@ -4,14 +4,13 @@ import './MoodListComponent.scss'
 
 import PubSub from 'pubsub-js'
 import { nanoid } from 'nanoid';
+import axios from 'axios';
 
 import { Input, Button } from 'antd';
 import MoodBox from './MoodItem';
-import axios from 'axios';
 
 
-// 类式组件 简写形式
-class MoodListComponent extends Component {
+export default class MoodListComponent extends Component {
 
     render() {
         return (
@@ -48,12 +47,16 @@ class MoodListComponent extends Component {
     }
 
     getTodayTask = () => {
+        const { isLoading } = this.props
+        isLoading(true);
         axios.get('/api/getTodayTask').then(
             response => {
+                isLoading(false);
                 console.log(response.data);
                 PubSub.publish('defaultMood', response.data)
             },
             error => {
+                isLoading(false);
                 console.log(error);
             }
         )
@@ -64,5 +67,3 @@ class MoodListComponent extends Component {
     }
 
 }
-
-export { MoodListComponent };
