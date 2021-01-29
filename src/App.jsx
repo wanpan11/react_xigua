@@ -7,7 +7,7 @@ import './style/initStyle.scss'
 
 //引入组件
 import NavBar from './components/Navbar/NavbarComponent';
-import MoodListComponent from './components/Mood/MoodListComponent';
+import Index from './components/lndex/index';
 import LoadingComponent from './components/Loading/LoadingComponent';
 import TipsBox from './components/Tips/Tips_1';
 
@@ -24,39 +24,55 @@ export default class App extends Component {
         tips: {
             tips: false,
             msg: ''
-        }
+        },
+        navbarChecked: '001'
     }
 
     componentDidMount() {
 
-        PubSub.subscribe('clearTodayTaskError', (_, obj) => {
+        //提示窗消息订阅
+        PubSub.subscribe('tipsDIsplay', (_, obj) => {
             this.setState({ tips: { tips: obj.tips, msg: obj.msg } });
             setTimeout(() => {
                 this.setState({ tips: { tips: false, msg: '' } });
             }, 500);
         })
 
+        //加载动画消息订阅
         PubSub.subscribe('loading', (_, obj) => {
             this.setState({ loading: obj.loading });
         })
     }
 
     render() {
-
-        const { loading, tips } = this.state
-
+        const { loading, tips, navbarChecked } = this.state
         return (
             <div className="app_model">
                 <div className="app_head">
-                    <NavBar />
+                    <NavBar toggleAppContainer={this.toggleAppContainer} />
                 </div>
                 <div className="app_container">
-                    <MoodListComponent />
+                    {
+                        navbarChecked === '001' ?
+                            <Index />
+                            :
+                            navbarChecked === '002' ?
+                                <div>002</div>
+                                :
+                                navbarChecked === '003' ?
+                                    <div>003</div>
+                                    :
+                                    <div>004</div>
+                    }
                 </div>
                 { loading ? <LoadingComponent /> : ''}
                 { tips.tips ? <TipsBox msg={tips.msg} /> : ''}
             </div>
         )
+    }
+
+    toggleAppContainer = (itme) => {
+        this.setState({ navbarChecked: itme.id })
     }
 
 

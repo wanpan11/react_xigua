@@ -29,7 +29,7 @@ export default class MoodBox extends Component {
         PubSub.subscribe('clearTodayTask', (msg, defaultMoodArr) => {
             const { moodList } = this.state
             if (moodList.length === 0) {
-                PubSub.publish('clearTodayTaskError', { msg: '暂无任务~~', tips: true })
+                PubSub.publish('tipsDIsplay', { msg: '暂无任务~~', tips: true })
 
             } else {
                 this.setState({ moodList: [], firstLoad: false })

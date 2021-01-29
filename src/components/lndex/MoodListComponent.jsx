@@ -50,11 +50,15 @@ export default class MoodListComponent extends Component {
         PubSub.publish('loading', { loading: true })
         axios.get('/api/getTodayTask').then(
             response => {
-                PubSub.publish('loading', { loading: false })
                 console.log(response.data);
+                PubSub.publish('loading', { loading: false })
+                PubSub.publish('tipsDIsplay', { msg: '获取成功！', tips: true })
                 PubSub.publish('defaultMood', response.data)
             },
             error => {
+                console.log(error);
+                PubSub.publish('loading', { loading: false })
+                PubSub.publish('tipsDIsplay', { msg: '获取失败！', tips: true })
                 console.log(error);
             }
         )

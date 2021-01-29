@@ -6,6 +6,12 @@ module.exports = function (app) {
             target: 'http://localhost:9000',
             changeOrigin: true,
             pathRewrite: { '^/api': '' }
-        }))
+        }),
+        createProxyMiddleware('/oms', {
+            target: 'http://localhost:8889',
+            changeOrigin: true,
+            pathRewrite: { '^/oms': '' }
+        })
+    )
 }
 

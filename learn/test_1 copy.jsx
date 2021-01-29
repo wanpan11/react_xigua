@@ -4,7 +4,7 @@ import 'antd/dist/antd.css';
 import './test_1.scss'
 
 import { Input, Button } from 'antd';
-import MoodBox from './MoodItem';
+import MoodBox from '../src/components/lndex/MoodItem';
 
 //#region region
 // 类式组件 标准形式

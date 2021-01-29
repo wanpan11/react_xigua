@@ -33,6 +33,8 @@ export default class NavBar extends Component {
     setNavbarStatus = (itme) => {
         return () => {
             const { navbarList } = this.state
+            const { toggleAppContainer } = this.props
+            toggleAppContainer(itme)
             const { id } = itme
             navbarList.forEach(ele => {
                 ele.id === id ? ele.status = true : ele.status = false
