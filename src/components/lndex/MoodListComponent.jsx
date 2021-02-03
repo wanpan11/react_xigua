@@ -16,11 +16,11 @@ export default class MoodListComponent extends Component {
         return (
             <div className="moodComponent">
                 <div className="moodComponent_head">
-                    <Input placeholder="今天的心吗？" onKeyUp={this.setMood} />
+                    <Input placeholder="请输入你要查询的昵称" onKeyUp={this.setMood} />
                 </div>
                 <MoodBox />
                 <div className="moodComponent_foot">
-                    <Button onClick={this.getTodayTask} type="primary">获取今日任务</Button>
+                    <Button onClick={this.getTodayTask} type="primary">获取群员信息</Button>
                     <Button onClick={this.clearTodayTask} >清空任务</Button>
                 </div>
             </div>

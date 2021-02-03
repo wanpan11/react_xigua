@@ -31,6 +31,7 @@
     "@testing-library/react": "^11.2.3",
     "@testing-library/user-event": "^12.6.2",
     "axios": "^0.21.1",
+    "express": "^4.17.1",
     "http-proxy-middleware": "^1.0.6",
     "prop-types": "^15.7.2",
     "pubsub-js": "^1.9.2",
