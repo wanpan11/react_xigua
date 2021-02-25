@@ -16,5 +16,5 @@ app.get('/getTodayTask', function (req, res) { //当路由url匹配为'/'时，�
 var server = app.listen(9000, function () {  //应用启动端口为
     var host = server.address().address;
     var port = server.address().port;
-    console.log(host, port)
+    console.log(host, port, 'server1启动了！')
 });
