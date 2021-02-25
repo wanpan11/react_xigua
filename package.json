@@ -39,9 +39,7 @@
     "react-dom": "^17.0.1",
     "react-lottie-player": "^1.1.1",
     "react-scripts": "4.0.1",
-    "web-vitals": "^0.2.4"
-  },
-  "devDependencies": {
+    "web-vitals": "^0.2.4",
     "antd": "^4.10.3",
     "sass": "^1.32.5"
   }
