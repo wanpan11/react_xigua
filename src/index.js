@@ -5,5 +5,5 @@ import ReactDOM from 'react-dom'
 //引入组件
 import App from './App'
 
-//将组件渲染到页面
+//将组件渲染到页面1
 ReactDOM.render(<App />, document.getElementById('root'))
