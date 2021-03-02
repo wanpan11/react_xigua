@@ -1,35 +1,51 @@
 .content_box {
-    width: 80%;
-    margin: 10% auto;
-    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    padding-top: 5%;
+    box-sizing: border-box;
+    background-image: url(../../img/search_bg.jpg);
+    background-size: 100%;
 
     .search_box {
-        width: 100%;
+        width: 80%;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 4px;
 
         .search_itme {
             width: 100%;
-            padding: 20px;
+            padding: 20px 20px 24px 20px;
             box-sizing: border-box;
             position: relative;
 
-            span {
+            .search_span {
                 position: absolute;
-                top: 32px;
-                left: 22px;
-                z-index: 998;
+                left: 0px;
+                z-index: 999;
+                display: block;
+                width: 100%;
+                line-height: 48px;
+                padding: 0 24px;
+                box-sizing: border-box;
+                color: rgba(0, 0, 0, 0.4);
             }
 
-            input {
+            .search_input {
                 font-size: 20px;
                 line-height: 32px;
                 border: none;
                 outline: none;
                 border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 width: 100%;
-                padding: 8px;
-                z-index: 999;
+                padding: 4px 8px;
                 box-sizing: border-box;
                 background-color: rgba(0, 0, 0, 0);
+            }
+
+            .search_line {
+                height: 1px;
+                background-color: red;
+                width: 0;
             }
         }
     }
