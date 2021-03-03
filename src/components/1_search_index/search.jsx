@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import $ from 'jquery'
 
 import './search.scss'
+import '../../static/iconfont/iconfont.css'
 
 export default class Search extends Component {
 
@@ -10,6 +10,9 @@ export default class Search extends Component {
         $('.content_box').css({
             height: height + 'px'
         })
+        $('.search_itme').stop().animate({
+            background: '#fff'
+        }, 100)
     }
 
     render() {
@@ -18,7 +21,10 @@ export default class Search extends Component {
                 <div className="content_box">
                     <div className="search_box">
                         <div className="search_itme">
-                            <span className="search_span" onClick={this.inputSpanClick}>请输入你要查询的内容</span>
+                            <div className="search_span">
+                                <i class="iconfont iconsousuo_2"></i>
+                                <span onClick={this.inputSpanClick}>请输入你要查询的内容</span>
+                            </div>
                             <input className="search_input" type="text" ref="input" />
                             <div className="search_line"></div>
                             <div className="info_content"></div>
@@ -30,8 +36,8 @@ export default class Search extends Component {
     }
 
     inputSpanClick = () => {
-        $('.search_box').stop().animate({
-            opacity: 1
+        $('.search_itme').stop().animate({
+            background: '#fff'
         }, 100)
         $('.search_span').stop().animate({
             opacity: 0,
@@ -55,7 +61,7 @@ export default class Search extends Component {
                 }, 200, () => {
                     $('.info_content').text('')
                     $('.search_box').stop().animate({
-                        opacity: 0.6
+                        // opacity: 0.6
                     }, 600)
                 });
             }

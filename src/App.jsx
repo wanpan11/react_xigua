@@ -5,6 +5,7 @@ import PubSub from 'pubsub-js'
 //引入样式、工具包
 import './style/initStyle.scss'
 
+
 //引入组件
 import NavBar from './components/Navbar/NavbarComponent';
 import Index from './components/lndex/index';
