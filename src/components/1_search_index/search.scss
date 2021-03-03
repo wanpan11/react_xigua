@@ -1,23 +1,27 @@
-.content_box {
+.search_box {
     height: 100%;
     width: 100%;
-    padding-top: 5%;
+    margin-top: 24px;
     box-sizing: border-box;
-    background-image: url(../../img/search_bg.jpg);
     background-size: 100%;
+    position: relative;
+    height: 77px;
 
-    .search_box {
+    .search_content_box {
         width: 80%;
-        margin: 0 auto;
+        position: absolute;
+        top: 0;
+        left: 10%;
 
         .search_itme {
             width: 100%;
             padding: 20px 20px 16px 20px;
             background-color: rgba(255, 255, 255, 0.4);
             box-sizing: border-box;
-            border-radius: 4px;
+            border-radius: 40px;
+            box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.03);
             position: relative;
-            transition: 200ms;
+            // transition: 200ms;
 
             .search_click {
                 position: absolute;
@@ -48,7 +52,7 @@
                 line-height: 32px;
                 border: none;
                 outline: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                // border-bottom: 1px solid rgba(0, 0, 0, 0.2);
                 width: 100%;
                 padding: 4px 8px;
                 box-sizing: border-box;
@@ -68,21 +72,27 @@
             }
         }
     }
+}
 
-    .info_box {
-        width: 80%;
-        margin: 24px auto 0;
-        display: flex;
+.info_box {
+    width: 80%;
+    margin: 24px auto 0;
+    display: flex;
+    border-radius: 8px;
 
-        .info_block {
-            width: calc(25% - 16px);
-            margin: 0 8px;
-            background-color: #ffffff;
-            border-radius: 4px;
+    .info_block {
+        width: calc(25% - 16px);
+        margin: 0 8px;
+        background-color: #ffffff;
+        border-radius: 4px;
+        padding: 12px;
+
+        h1 {
+            font-size: 18px;
         }
     }
 }
 
-.color_animation {
-    background-color: #ffffff !important;
-}
+// .color_animation {
+//     background-color: #ffffff !important;
+// }

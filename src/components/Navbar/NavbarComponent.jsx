@@ -16,9 +16,9 @@ export default class NavBar extends Component {
         const { navbarList } = this.state
         return (
             <div className='navbarBox'>
-                <div className="navbarBox_logo">
+                {/* <div className="navbarBox_logo">
                     <img src={logo} alt="logo" />
-                </div>
+                </div> */}
                 <ul className={'navbar'}>
                     {
                         navbarList.map((itme) => {
@@ -34,7 +34,7 @@ export default class NavBar extends Component {
         return () => {
             const { navbarList } = this.state
             const { toggleAppContainer } = this.props
-            toggleAppContainer(itme)
+            // toggleAppContainer(itme)
             const { id } = itme
             navbarList.forEach(ele => {
                 ele.id === id ? ele.status = true : ele.status = false
