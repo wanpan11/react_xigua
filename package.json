@@ -33,6 +33,7 @@
     "antd": "^4.10.3",
     "axios": "^0.21.1",
     "http-proxy-middleware": "^1.0.6",
+    "jquery": "^3.6.0",
     "prop-types": "^15.7.2",
     "pubsub-js": "^1.9.2",
     "react": "^17.0.1",

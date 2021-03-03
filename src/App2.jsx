@@ -6,8 +6,6 @@ import './style/initStyle.scss'
 
 //引入组件
 import Search from './components/1_search_index/search'
-import InfoBlock from './components/1_search_index/info_block'
-
 
 export default class App extends Component {
 
@@ -15,12 +13,6 @@ export default class App extends Component {
         return (
             <div className="app_model">
                 <Search />
-                <div>
-                    <InfoBlock />
-                    <InfoBlock />
-                    <InfoBlock />
-                    <InfoBlock />
-                </div>
             </div>
         )
     }

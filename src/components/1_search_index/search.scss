@@ -9,28 +9,37 @@
     .search_box {
         width: 80%;
         margin: 0 auto;
-        border-radius: 4px;
 
         .search_itme {
             width: 100%;
-            padding: 20px 20px 24px 20px;
+            padding: 20px 20px 16px 20px;
+            background-color: rgba(255, 255, 255, 0.4);
             box-sizing: border-box;
+            border-radius: 4px;
             position: relative;
+            transition: 200ms;
 
-            .search_span {
+            .search_click {
                 position: absolute;
                 left: 0px;
                 top: 16px;
                 z-index: 999;
                 display: block;
                 width: 100%;
-                line-height: 48px;
                 padding: 0 24px 0 40px;
                 box-sizing: border-box;
                 color: rgba(0, 0, 0, 0.4);
 
                 i {
                     font-size: 28px;
+                    float: left;
+                    margin: 8px 8px 0 0;
+                }
+
+                span {
+                    line-height: 48px;
+                    float: left;
+                    font-size: 16px;
                 }
             }
 
@@ -59,4 +68,21 @@
             }
         }
     }
+
+    .info_box {
+        width: 80%;
+        margin: 24px auto 0;
+        display: flex;
+
+        .info_block {
+            width: calc(25% - 16px);
+            margin: 0 8px;
+            background-color: #ffffff;
+            border-radius: 4px;
+        }
+    }
+}
+
+.color_animation {
+    background-color: #ffffff !important;
 }
