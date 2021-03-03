@@ -10,6 +10,7 @@
         width: 80%;
         margin: 0 auto;
         background-color: #fff;
+        opacity: 0.6;
         border-radius: 4px;
 
         .search_itme {
@@ -47,6 +48,13 @@
                 height: 1px;
                 background-color: red;
                 width: 0;
+            }
+
+            .info_content {
+                font-size: 20px;
+                color: rgba(0, 0, 0, 0.6);
+                text-align: center;
+                padding: 20px;
             }
         }
     }

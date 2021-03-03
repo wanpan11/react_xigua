@@ -30,30 +30,40 @@ export default class Search extends Component {
     }
 
     inputSpanClick = () => {
-        $('.search_span').animate({
+        $('.search_box').stop().animate({
+            opacity: 1
+        }, 100)
+        $('.search_span').stop().animate({
             opacity: 0,
             top: 0
         }, 200);
-        $('.search_line').animate({
+        $('.search_line').stop().animate({
             width: '100%'
         }, 200);
         $('.search_input').focus().on('blur', (self) => {
             const target = self.target
             if (target.value === '') {
-                $('.search_span').animate({
+                $('.search_span').stop().animate({
                     opacity: 1,
                     top: '16px'
                 }, 200);
-                $('.search_line').animate({
+                $('.search_line').stop().animate({
                     width: '0'
                 }, 200);
-                $('.info_content').animate({
+                $('.info_content').stop().animate({
                     height: '0'
-                }, 200);
+                }, 200, () => {
+                    $('.info_content').text('')
+                    $('.search_box').stop().animate({
+                        opacity: 0.6
+                    }, 600)
+                });
             }
         });
-        $('.info_content').animate({
+        $('.info_content').stop().animate({
             height: '200px'
-        }, 200);
+        }, 200, () => {
+            $('.info_content').text('输入关键字试试吧~~')
+        });
     };
 }
