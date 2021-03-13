@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PubSub from 'pubsub-js'
 
 //引入样式、工具包
-import './style/initStyle.scss'
+
 
 
 //引入组件
