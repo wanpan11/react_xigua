@@ -18,20 +18,23 @@
                 this.age = b
             }
 
-            // 实例方法
+            // 实例方法 仅实例化对象才能访问
             say() {
                 return console.log(this.name + '今年' + this.age)
             }
 
-            // 静态方法
-            static wanpan = {
-                'id': 123
+            // 静态方法 static 会生成私有属性 实例化对象无法方式
+            static staticFuc() {
+                return '我是Wanpan的静态方法！';
             }
+            static staticStr = '123';
         }
         const wanpan = new Wanpan('宛攀', 25)
-        console.log(wanpan)
-        console.log(wanpan.wanpan);
-        console.log(Wanpan.wanpan);
+        console.log(wanpan);
+        wanpan.say();
+        console.log(wanpan.staticStr);
+        console.log(Wanpan.staticFuc());
+        console.log(Wanpan.staticStr);
 
         // 1.1类的继承
         class Wanpan1 extends Wanpan {
