@@ -4,7 +4,7 @@ import './Navbar.scss'
 
 //引入数据
 import navbar from './navbar.json'
-import logo from '../../img/logo.png';
+// import logo from '../../img/logo.png';
 
 export default class NavBar extends Component {
 
@@ -33,7 +33,7 @@ export default class NavBar extends Component {
     setNavbarStatus = (itme) => {
         return () => {
             const { navbarList } = this.state
-            const { toggleAppContainer } = this.props
+            // const { toggleAppContainer } = this.props
             // toggleAppContainer(itme)
             const { id } = itme
             navbarList.forEach(ele => {
