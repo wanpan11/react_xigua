@@ -1,22 +1,26 @@
 [
     {
         "id": "001",
-        "name": "魔仙",
+        "name": "首页",
+        "url": "/tab_0",
         "status": true
     },
     {
         "id": "002",
-        "name": "快乐",
+        "name": "案例",
+        "url": "/tab_1",
         "status": false
     },
     {
         "id": "003",
-        "name": "魔仙堡",
+        "name": "日志",
+        "url": "/tab_2",
         "status": false
     },
     {
         "id": "004",
-        "name": "堡",
+        "name": "关于",
+        "url": "/tab_3",
         "status": false
     }
 ]

@@ -1,7 +1,7 @@
 //引入依赖
 import React, { Component } from 'react';
 //页面路由
-import { NavLink, Route, BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 //引入样式、工具包
 import './static/iconfont/iconfont.css'
@@ -9,9 +9,9 @@ import './style/App2.scss'
 import './components/1_search_index/search.scss'
 
 //引入组件
-import Search from './components/1_search_index/search'
-import InfoBlock from './components/1_search_index/info_block'
-import NavBar from './components/Navbar/NavbarComponent';
+import Search from './components/1_search_index/search.jsx'
+import InfoBlock from './components/1_search_index/InfoBlock.jsx'
+import NavBar from './components/Navbar/NavbarComponent.jsx';
 
 export default class App extends Component {
 
@@ -23,12 +23,10 @@ export default class App extends Component {
                         <NavBar />
                     </div>
                     <Search />
-                    <div className="info_box">
-                        <InfoBlock />
-                        <InfoBlock />
-                        <InfoBlock />
-                        <InfoBlock />
-                    </div>
+                    <Switch>
+                        <Route exact path="/" component={InfoBlock}></Route>
+                        <Route path="/tab_0" component={InfoBlock}></Route>
+                    </Switch>
                 </div>
             </BrowserRouter>
         )

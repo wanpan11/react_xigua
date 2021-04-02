@@ -1,6 +1,5 @@
 .navbarBox {
     background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
 
     .navbarBox_logo {
         position: relative;
@@ -20,19 +19,22 @@
         display: flex;
         font-size: 18px;
         font-weight: bold;
-        width: calc(100% - 52px);
-        max-width: 400px;
 
         li {
-            color: #fff;
-            text-align: center;
             line-height: 48px;
             width: 25%;
         }
 
+        a {
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+
     }
 
-    .selected {
+    .active {
         color: yellow !important;
     }
 }

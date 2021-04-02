@@ -1,47 +1,41 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+
 
 import './Navbar.scss'
 
 //引入数据
 import navbar from './navbar.json'
-// import logo from '../../img/logo.png';
 
-export default class NavBar extends Component {
+class NavBar extends Component {
 
     state = {
         navbarList: navbar
+    }
+
+    componentDidMount() {
+        this.props.history.push('/tab_0')
     }
 
     render() {
         const { navbarList } = this.state
         return (
             <div className='navbarBox'>
-                {/* <div className="navbarBox_logo">
-                    <img src={logo} alt="logo" />
-                </div> */}
                 <ul className={'navbar'}>
                     {
                         navbarList.map((itme) => {
-                            return <li key={itme.id} className={itme.status ? 'selected' : ''} onClick={this.setNavbarStatus(itme)}>{itme.name}</li>
+                            return (
+                                <li key={itme.id}>
+                                    <NavLink to={itme.url}> {itme.name}</NavLink>
+                                </li>
+                            )
                         })
                     }
                 </ul>
-            </div>
+            </div >
         )
     }
-
-    setNavbarStatus = (itme) => {
-        return () => {
-            const { navbarList } = this.state
-            // const { toggleAppContainer } = this.props
-            // toggleAppContainer(itme)
-            const { id } = itme
-            navbarList.forEach(ele => {
-                ele.id === id ? ele.status = true : ele.status = false
-            })
-            this.setState({ navbarList: navbarList })
-        }
-    }
-
 }
 
+export default withRouter(NavBar)
