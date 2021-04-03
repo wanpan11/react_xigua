@@ -1,17 +1,12 @@
 .search_box {
-    height: 100%;
-    width: 100%;
-    margin-top: 24px;
-    box-sizing: border-box;
-    background-size: 100%;
     position: relative;
     height: 77px;
 
     .search_content_box {
-        width: 80%;
+        width: 100%;
         position: absolute;
         top: 0;
-        left: 10%;
+        left: 0;
 
         .search_itme {
             width: 100%;
@@ -75,9 +70,9 @@
 }
 
 .item_box {
-    width: 80%;
-    margin: 24px auto 0;
     display: flex;
+    padding: 0 12px;
+    margin-top: 24px;
     justify-content: space-between;
     flex-wrap: wrap;
     border-radius: 8px;
@@ -94,13 +89,13 @@
             color: rgba(0, 0, 0, 0.8);
         }
 
-        span{
+        span {
             color: rgba(0, 0, 0, 0.6);
         }
     }
 }
 
-.item_info_box{
+.item_info_box {
     width: 80%;
     margin: 12px auto 0;
     background-color: #ffffff;

@@ -9,7 +9,6 @@ import './style/App2.scss'
 import './components/1_search_index/search.scss'
 
 //引入组件
-import Search from './components/1_search_index/search.jsx'
 import InfoBlock from './components/1_search_index/InfoBlock.jsx'
 import NavBar from './components/Navbar/NavbarComponent.jsx';
 
@@ -22,11 +21,12 @@ export default class App extends Component {
                     <div className="banner_bxo">
                         <NavBar />
                     </div>
-                    <Search />
-                    <Switch>
-                        <Route exact path="/" component={InfoBlock}></Route>
-                        <Route path="/tab_0" component={InfoBlock}></Route>
-                    </Switch>
+                    <div className="container_box">
+                        <Switch className="container_box">
+                            <Route exact path="/" component={InfoBlock}></Route>
+                            <Route path="/tab_0" component={InfoBlock}></Route>
+                        </Switch>
+                    </div>
                 </div>
             </BrowserRouter>
         )
