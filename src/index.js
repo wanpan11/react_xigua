@@ -11,3 +11,4 @@ import App2 from './App2'
 
 //将组件渲染到页面1
 ReactDOM.render(<App2 />, document.getElementById('root'))
+
