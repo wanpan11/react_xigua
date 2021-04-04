@@ -6,12 +6,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 //引入样式、工具包
 import './static/iconfont/iconfont.css'
 import './style/App2.scss'
-import './components/1_tab01/search.scss'
 
 //引入组件
-import NavBar from './components/Navbar/NavbarComponent.jsx';
-import InfoBlock from './components/1_tab01/InfoBlock'
-import Tab02 from './components/2_tab02'
+import NavBar from './components/navbar';
+import InfoBlock from './components/tab01'
+import Tab02 from './components/tab02'
 
 export default class App extends Component {
     render() {

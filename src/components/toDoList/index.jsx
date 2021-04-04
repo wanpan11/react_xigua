@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import MoodListComponent from './MoodListComponent'
+import MoodListComponent from './moodListComponent'
 
 export default class Index extends Component {
     render() {

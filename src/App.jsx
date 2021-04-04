@@ -7,10 +7,10 @@ import PubSub from 'pubsub-js'
 
 
 //引入组件
-import NavBar from './components/Navbar/NavbarComponent';
-import Index from './components/lndex/index';
-import LoadingComponent from './components/Loading/LoadingComponent';
-import TipsBox from './components/Tips/Tips_1';
+import NavBar from './components/navbar';
+import ToDoList from './components/toDoList';
+import LoadingComponent from './components/loading';
+import TipsBox from './components/tips';
 
 
 console.log(LoadingComponent);
@@ -55,7 +55,7 @@ export default class App extends Component {
                 <div className="app_container">
                     {
                         navbarChecked === '001' ?
-                            <Index />
+                            <ToDoList />
                             :
                             navbarChecked === '002' ?
                                 <div>002</div>

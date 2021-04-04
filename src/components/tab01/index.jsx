@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-// import { Link } from 'react-router-dom'
 
 import Search from './search'
+import './index.scss'
 
 //引入数据
 import info from './info.json'

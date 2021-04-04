@@ -7,7 +7,7 @@ import { nanoid } from 'nanoid';
 import axios from 'axios';
 
 import { Input, Button } from 'antd';
-import MoodBox from './MoodItem';
+import MoodBox from './moodItem';
 
 
 export default class MoodListComponent extends Component {

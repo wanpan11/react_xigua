@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 
-import './Navbar.scss'
+import './index.scss'
 
 //引入数据
 import navbar from './navbar.json'
