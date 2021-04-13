@@ -7,8 +7,9 @@ import './style/initStyle.scss'
 
 //引入组件
 // import App from './App'
-import App2 from './App2'
+// import App2 from './App2'
+import App3 from './App3'
 
 //将组件渲染到页面1
-ReactDOM.render(<App2 />, document.getElementById('root'))
+ReactDOM.render(<App3 />, document.getElementById('root'))
 
