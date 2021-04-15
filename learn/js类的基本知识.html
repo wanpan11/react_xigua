@@ -18,17 +18,23 @@
                 this.age = b
             }
 
+            size = {
+                1: 1
+            }
+
             // 实例方法 仅实例化对象才能访问
             say() {
                 return console.log(this.name + '今年' + this.age)
             }
 
-            // 静态方法 static 会生成私有属性 实例化对象无法方式
+            // 静态方法 static 会生成私有属性 实例化对象无法访问
             static staticFuc() {
                 return '我是Wanpan的静态方法！';
             }
+
             static staticStr = '123';
         }
+
         const wanpan = new Wanpan('宛攀', 25)
         console.log(wanpan);
         wanpan.say();
