@@ -1,22 +1,26 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom';
-
+import { page } from '../../router/router'
 import './index.scss'
 
-import ItemCard from '../../components/item_card'
-import Page1 from './page_1'
-import Page2 from './page_2'
-import Page3 from './page_3'
+console.log(page);
 
 export default class index extends Component {
     render() {
         return (
             <div className="content_box">
                 <Switch>
-                    <Route exact path="/" component={ItemCard}></Route>
-                    <Route path="/Page1" component={Page1}></Route>
-                    <Route path="/Page2" component={Page2}></Route>
-                    <Route path="/Page3" component={Page3}></Route>
+                    {
+                        page.map(ele => {
+                            return (
+                                ele.key === '001'
+                                    ?
+                                    <Route exact path={ele.path} component={ele.component} key={ele.key}></Route>
+                                    :
+                                    <Route path={ele.path} component={ele.component} key={ele.key}></Route>
+                            )
+                        })
+                    }
                 </Switch>
             </div>
         )
