@@ -1,13 +1,16 @@
 .sidebar_box {
+    position: relative;
+    z-index: 1;
+    width: 240px;
     display: flex;
     flex-direction: column;
-    width: 200px;
     background-color: darkslategray;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 
     .sidebar_logo {
+        color: #fff;
         font-size: 24px;
         font-weight: bold;
-        color: #fff;
         line-height: 60px;
         text-align: center;
     }
@@ -20,8 +23,19 @@
             color: #fff;
             padding: 24px;
             font-size: 16px;
+            font-weight: bold;
             display: flex;
+            align-items: center;
             justify-content: space-between;
+
+            .sidebar_list_text {
+                margin-left: 12px;
+            }
+        }
+
+        .item_selected {
+            background: #f2f2f2;
+            color: rgba(0, 0, 0, 0.8);
         }
     }
 }
