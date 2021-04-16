@@ -1,30 +1,56 @@
 import React from 'react'
 import './index.scss'
 
+import { RightOutlined, SmileOutlined } from '@ant-design/icons';
+
 
 interface State {
-    selected: string
+    selected: string,
+    sidebarHeight: string
 }
 
-export default class Sidebar extends React.Component<{}, State> {
+interface Props {
+    listData: Array<{ text: string, key: string }>
+}
+
+export default class Sidebar extends React.Component<Props, State> {
 
     state: State = {
-        selected: 'yes'
+        selected: 'yes',
+        sidebarHeight: '0'
     }
 
     componentDidMount() {
-        
+        console.log(window);
+        const innerHeight: string = window.innerHeight + 'px'
+        this.setState({ sidebarHeight: innerHeight })
     }
 
 
     render() {
+        const { listData } = this.props;
+        const { sidebarHeight } = this.state
         return (
-            <ul className="sidebar_box" ref="sidebar_ele">
-                <li>首页</li>
-                <li>精彩内容</li>
-                <li>热门推荐</li>
-                <li>配置管理</li>
-            </ul>
+            <div className="sidebar_box">
+                <div className="sidebar_logo">
+                    logo
+                </div>
+                <ul className="sidebar_list" style={{ height: sidebarHeight }}>
+                    {
+                        listData.map(ele => {
+                            return (
+                                <li key={ele.key}>
+                                    <div>
+                                        <SmileOutlined />
+                                        <span>{ele.text}</span>
+                                    </div>
+                                    <RightOutlined />
+                                </li>
+                            )
+                        })
+                    }
+                </ul>
+            </div>
         )
     }
 }

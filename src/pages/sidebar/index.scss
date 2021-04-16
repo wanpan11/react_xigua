@@ -1,9 +1,27 @@
 .sidebar_box {
     display: flex;
     flex-direction: column;
-    width: 30%;
-    max-width: 300px;
-    max-width: 200px;
+    width: 200px;
     background-color: darkslategray;
-    color: #fff;
+
+    .sidebar_logo {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        line-height: 60px;
+        text-align: center;
+    }
+
+    .sidebar_list {
+        display: flex;
+        flex-direction: column;
+
+        li {
+            color: #fff;
+            padding: 24px;
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
 }
