@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from 'react-router-dom'
 import { sidebar } from '../../router/router'
 import './index.scss'
+import logo from '../../img/logo.png'
 
 import { RightOutlined, SmileOutlined, DownOutlined } from '@ant-design/icons';
 
@@ -20,11 +21,11 @@ class Sidebar extends React.Component {
     render() {
         const { history: { location: { pathname } } } = this.props;
         const { sidebarHeight } = this.state
-        debugger
         return (
             <div className="sidebar_box" style={{ height: sidebarHeight }}>
                 <div className="sidebar_logo">
-                    西瓜视频
+                    <img src={logo} alt="logo" className="logo" />
+                    <span>西瓜视频</span>
                 </div>
                 <ul className="sidebar_list">
                     {
