@@ -1,11 +1,18 @@
 .sidebar_box {
-    position: relative;
     z-index: 1;
-    width: 240px;
-    display: flex;
-    flex-direction: column;
-    background-color: darkslategray;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    .sidebar_box_normal {
+        display: flex;
+        min-width: 240px;
+        flex-direction: column;
+        background-color: darkslategray;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        height: 100%;
+    }
+
+
+
 
     .sidebar_logo {
         display: flex;
@@ -49,5 +56,17 @@
             background: #f2f2f2;
             color: rgba(0, 0, 0, 0.8);
         }
+    }
+
+    .sidebar_control {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 12px;
+        box-sizing: border-box;
+        text-align: center;
+        width: 100%;
+        color: #fff;
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
     }
 }

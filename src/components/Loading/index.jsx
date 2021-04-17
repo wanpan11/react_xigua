@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './LoadingComponent.scss'
+import './index.scss'
 import Lottie from 'react-lottie-player'
 import lottieJson from './loading_1.json'
 

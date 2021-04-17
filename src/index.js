@@ -3,7 +3,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 //引入初始化样式
-import './style/initStyle.scss'
+import './static/style/initStyle.scss'
 
 //引入组件
 // import App from './App'
