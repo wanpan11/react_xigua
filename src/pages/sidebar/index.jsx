@@ -24,7 +24,7 @@ class Sidebar extends React.Component {
         return (
             <div className="sidebar_box" style={{ height: sidebarHeight }}>
                 <div className="sidebar_logo">
-                    logo
+                    西瓜视频
                 </div>
                 <ul className="sidebar_list">
                     {
@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
                                         <span className="sidebar_list_text">{ele.text}</span>
                                     </div>
                                     {
-                                        ele.key === '001' ? '' : (pathname === ele.path ? <DownOutlined /> : <RightOutlined />)
+                                        ele.key === '000' ? '' : (pathname === ele.path ? <DownOutlined /> : <RightOutlined />)
                                     }
                                 </li>
                             )
@@ -56,7 +56,7 @@ class Sidebar extends React.Component {
                 }
             })
             const { history } = this.props
-            history.replace(path)
+            history.push(path)
         }
     }
 

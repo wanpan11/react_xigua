@@ -12,7 +12,7 @@ export default class index extends Component {
                     {
                         page.map(ele => {
                             return (
-                                ele.key === '001'
+                                ele.key === '000'
                                     ?
                                     <Route exact path={ele.path} component={ele.component} key={ele.key}></Route>
                                     :
