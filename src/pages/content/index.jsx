@@ -3,7 +3,6 @@ import { Switch, Route } from 'react-router-dom';
 import { page } from '../../router/router'
 import './index.scss'
 
-console.log(page);
 
 export default class index extends Component {
     render() {

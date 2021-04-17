@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from 'react-router-dom'
+import { sidebar } from '../../router/router'
 import './index.scss'
 
 import { RightOutlined, SmileOutlined, DownOutlined } from '@ant-design/icons';
@@ -8,21 +9,18 @@ import { RightOutlined, SmileOutlined, DownOutlined } from '@ant-design/icons';
 class Sidebar extends React.Component {
 
     state = {
-        selected: 'yes',
         sidebarHeight: '0',
-        item_selected: '001'
     }
 
     componentDidMount() {
-        console.log(window);
         const innerHeight = window.innerHeight + 'px'
         this.setState({ sidebarHeight: innerHeight })
     }
 
     render() {
-        const { listData } = this.props;
-        const { sidebarHeight, item_selected } = this.state
-
+        const { history: { location: { pathname } } } = this.props;
+        const { sidebarHeight } = this.state
+        debugger
         return (
             <div className="sidebar_box" style={{ height: sidebarHeight }}>
                 <div className="sidebar_logo">
@@ -30,15 +28,15 @@ class Sidebar extends React.Component {
                 </div>
                 <ul className="sidebar_list">
                     {
-                        listData.map(ele => {
+                        sidebar.map(ele => {
                             return (
-                                <li key={ele.key} className={item_selected === ele.key ? 'item_selected' : ''} onClick={this.listSelectedSwitch(ele.key)} >
+                                <li key={ele.key} className={pathname === ele.path ? 'item_selected' : ''} onClick={this.setUrl(ele.key)}>
                                     <div>
                                         <SmileOutlined />
                                         <span className="sidebar_list_text">{ele.text}</span>
                                     </div>
                                     {
-                                        ele.key === '001' ? '' : (item_selected === ele.key ? <DownOutlined /> : <RightOutlined />)
+                                        ele.key === '001' ? '' : (pathname === ele.path ? <DownOutlined /> : <RightOutlined />)
                                     }
                                 </li>
                             )
@@ -49,22 +47,17 @@ class Sidebar extends React.Component {
         )
     }
 
-    listSelectedSwitch = (key) => {
-        return () => {
-            this.setUrl(key)
-            this.setState({ item_selected: key })
-        }
-    }
-
     setUrl = (key) => {
-        const router = {
-            '001': '',
-            '002': 'Page1',
-            '003': 'Page2',
-            '004': 'Page3'
+        return () => {
+            let path = ''
+            sidebar.forEach(ele => {
+                if (ele.key === key) {
+                    path = ele.path
+                }
+            })
+            const { history } = this.props
+            history.replace(path)
         }
-        const { history } = this.props
-        history.push(`/${router[key]}`)
     }
 
 
