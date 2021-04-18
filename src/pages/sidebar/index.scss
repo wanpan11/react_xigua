@@ -55,6 +55,7 @@
         }
 
         .sidebar_control {
+            cursor: pointer;
             position: absolute;
             bottom: 0;
             left: 0;
@@ -69,6 +70,7 @@
     }
 
     .sidebar_box_minibar {
+        cursor: pointer;
         color: #fff;
         padding: 8px;
         font-size: 20px;
@@ -78,7 +80,7 @@
 
 }
 
-
+/* normalbar 动画参数 */
 .sidebar_normal-enter {
     position: absolute;
     left: -300px;
@@ -109,7 +111,7 @@
 }
 
 
-
+/* minibar 动画参数 */
 .sidebar_mini-enter {
     position: absolute;
     left: -100px;

@@ -29,8 +29,8 @@ class Sidebar extends React.Component {
                 /*  onEnter={this.switchSidebar(false)}
                  onExited={this.switchSidebar(true)} */
                 >
-                    <div className="sidebar_box_minibar">
-                        <MenuUnfoldOutlined onClick={this.switchSidebar()} />
+                    <div className="sidebar_box_minibar" onClick={this.switchSidebar()} >
+                        <MenuUnfoldOutlined />
                     </div>
                 </CSSTransition>
 
@@ -64,8 +64,8 @@ class Sidebar extends React.Component {
                                 })
                             }
                         </ul>
-                        <div className="sidebar_control" >
-                            <MenuFoldOutlined onClick={this.switchSidebar()} />
+                        <div className="sidebar_control" onClick={this.switchSidebar()}>
+                            <MenuFoldOutlined />
                         </div>
                     </div>
                 </CSSTransition>
