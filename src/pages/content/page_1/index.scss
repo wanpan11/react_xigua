@@ -1,3 +1,8 @@
+.element-enter {
+    position: absolute;
+    left: 400px;
+}
+
 .element-enter-active {
     -webkit-animation-name: fadeInLeft;
     animation-name: fadeInLeft;
@@ -15,10 +20,12 @@
 @keyframes fadeInLeft {
     from {
         opacity: 0;
+        left: 400px;
     }
 
     to {
         opacity: 1;
+        left: 0px;
     }
 }
 
