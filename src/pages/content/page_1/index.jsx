@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
-import './index.scss'
 import { CSSTransition } from 'react-transition-group';
+import './index.scss'
 
 export default class page_1 extends Component {
 

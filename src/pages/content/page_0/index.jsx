@@ -12,7 +12,7 @@ export default class index extends Component {
                     {
                         data.map(ele => {
                             return (
-                                <div className="card_item">
+                                <div className="card_item" key={ele.key}>
                                     <img src="" alt="" />
                                     <div>
                                         <h1>{ele.title}</h1>
