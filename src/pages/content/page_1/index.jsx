@@ -1,34 +1,35 @@
 import React, { Component, Fragment } from 'react'
-import CSSTransitionGroup from 'react-transition-group';
-
 import './index.scss'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
+
 
 export default class page_1 extends Component {
 
     state = {
-        isShow: true
+        show: false
     }
 
     render() {
+        debugger
         return (
             <Fragment>
-                <CSSTransitionGroup
-                    in={this.state.isShow}
-                    timeout={2000}
-                    classNames="test"
-                    appear={true}
+                <ReactCSSTransitionGroup
+                    component="div"
+                    transitionName="element"
+                    transitionEnterTimeout={500}
+                    transitionLeaveTimeout={500}
                 >
-                    <div>hello</div>
-                </CSSTransitionGroup>
-                <button onClick={this.handleToggole}>toggole</button>
+                    {
+
+                        this.state.show ? <h1>My Element...</h1> : ''
+                    }
+                    <button onClick={this.showElement}>展示</button>
+                </ReactCSSTransitionGroup>
             </Fragment>
         )
     }
 
-    handleToggole = () => {
-        this.setState({
-            show: this.state.isShow ? false : true
-        })
+    showElement = () => {
+        this.setState({ show: this.state.show ? false : true })
     }
-
 }
