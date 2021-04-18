@@ -9,64 +9,62 @@
         background-color: darkslategray;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
         height: 100%;
-    }
 
-
-
-
-    .sidebar_logo {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 24px;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-
-        .logo {
-            height: 40px;
-        }
-
-        >span {
-            margin-left: 12px;
-            font-size: 24px;
-            color: #fff;
-            font-weight: bold;
-        }
-    }
-
-    .sidebar_list {
-        display: flex;
-        flex-direction: column;
-
-        li {
-            color: #fff;
-            padding: 16px 24px;
-            margin: 12px 0;
-            font-size: 16px;
-            font-weight: bold;
+        .sidebar_logo {
             display: flex;
+            flex-direction: row;
             align-items: center;
-            justify-content: space-between;
+            padding: 24px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 
-            .sidebar_list_text {
+            .logo {
+                height: 40px;
+            }
+
+            >span {
                 margin-left: 12px;
+                font-size: 24px;
+                color: #fff;
+                font-weight: bold;
             }
         }
 
-        .item_selected {
-            background: #f2f2f2;
-            color: rgba(0, 0, 0, 0.8);
+        .sidebar_list {
+            display: flex;
+            flex-direction: column;
+
+            li {
+                color: #fff;
+                padding: 16px 24px;
+                margin: 12px 0;
+                font-size: 16px;
+                font-weight: bold;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .sidebar_list_text {
+                    margin-left: 12px;
+                }
+            }
+
+            .item_selected {
+                background: #f2f2f2;
+                color: rgba(0, 0, 0, 0.8);
+            }
+        }
+
+        .sidebar_control {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            padding: 12px;
+            box-sizing: border-box;
+            text-align: center;
+            width: 100%;
+            color: #fff;
+            border-top: 1px solid rgba(0, 0, 0, 0.2);
         }
     }
 
-    .sidebar_control {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        padding: 12px;
-        box-sizing: border-box;
-        text-align: center;
-        width: 100%;
-        color: #fff;
-        border-top: 1px solid rgba(0, 0, 0, 0.2);
-    }
 }
