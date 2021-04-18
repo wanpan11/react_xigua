@@ -1,35 +1,49 @@
 import React, { Component, Fragment } from 'react'
 import './index.scss'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-
+import { CSSTransition } from 'react-transition-group';
 
 export default class page_1 extends Component {
 
     state = {
-        show: false
+        showButton: true,
+        showMessage: false
     }
 
     render() {
-        debugger
+        const { showButton, showMessage } = this.state
+
         return (
             <Fragment>
-                <ReactCSSTransitionGroup
-                    component="div"
-                    transitionName="element"
-                    transitionEnterTimeout={500}
-                    transitionLeaveTimeout={500}
+                {showButton && (
+                    <button onClick={this.setShowMessage(true)} > Show Message </button>
+                )}
+                <CSSTransition
+                    in={showMessage}
+                    timeout={300}
+                    classNames="alert"
+                    unmountOnExit
+                    onEnter={this.setShowButton(false)}
+                    onExited={this.setShowButton(true)}
                 >
-                    {
-
-                        this.state.show ? <h1>My Element...</h1> : ''
-                    }
-                    <button onClick={this.showElement}>展示</button>
-                </ReactCSSTransitionGroup>
+                    <div>
+                        <h1>Animated alert message</h1>
+                        <p> This alert message is being transitioned in and out of the DOM. </p>
+                        <button onClick={this.setShowMessage(false)}>Close</button>
+                    </div>
+                </CSSTransition>
             </Fragment>
         )
     }
 
-    showElement = () => {
-        this.setState({ show: this.state.show ? false : true })
+    setShowMessage = (boolean) => {
+        return () => {
+            this.setState({ showMessage: boolean })
+        }
+    }
+
+    setShowButton = (boolean) => {
+        return () => {
+            this.setState({ showButton: boolean })
+        }
     }
 }

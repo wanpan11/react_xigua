@@ -1,40 +1,20 @@
-.element-enter {
-    position: absolute;
-    left: 400px;
+.alert-enter {
+    opacity: 0;
+    transform: scale(0.9);
 }
 
-.element-enter-active {
-    -webkit-animation-name: fadeInLeft;
-    animation-name: fadeInLeft;
-    -webkit-animation-duration: 500ms;
-    animation-duration: 500ms;
+.alert-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 300ms, transform 300ms;
 }
 
-.element-leave-active {
-    -webkit-animation-name: fadeOutLeft;
-    animation-name: fadeOutLeft;
-    -webkit-animation-duration: 500ms;
-    animation-duration: 500ms;
+.alert-exit {
+    opacity: 1;
 }
 
-@keyframes fadeInLeft {
-    from {
-        opacity: 0;
-        left: 400px;
-    }
-
-    to {
-        opacity: 1;
-        left: 0px;
-    }
-}
-
-@keyframes fadeOutLeft {
-    from {
-        opacity: 1;
-    }
-
-    to {
-        opacity: 0;
-    }
+.alert-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 300ms, transform 300ms;
 }
