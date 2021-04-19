@@ -2,6 +2,7 @@ import React from "react";
 import { withRouter } from 'react-router-dom'
 import { sidebar } from '../../router'
 import { CSSTransition } from 'react-transition-group';
+import PubSub from 'pubsub-js'
 import './index.scss'
 import logo from '../../static/img/logo.png'
 
@@ -14,6 +15,12 @@ class Sidebar extends React.Component {
     state = {
         minibar: false,
         normalbar: true
+    }
+
+    componentDidMount() {
+        PubSub.subscribe('openItemInfo', (_, obj) => {
+            this.setState({ minibar: true, normalbar: false });
+        })
     }
 
     render() {

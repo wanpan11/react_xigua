@@ -1,30 +1,34 @@
 import React, { Component } from 'react'
 import './index.scss'
 
-import data from './data.json'
+import ListPage from './listPage'
+import ItemInfoPage from './itemInfoPage'
 
 export default class index extends Component {
 
-    render() {
-        return (
-            <div className="card_box">
-                <div className="card_item_box">
-                    {
-                        data.map(ele => {
-                            return (
-                                <div className="card_item" key={ele.key}>
-                                    <img src="" alt="" />
-                                    <div>
-                                        <h1>{ele.title}</h1>
-                                        <span>{ele.content}</span>
-                                    </div>
-                                </div>
-                            )
-                        })
-                    }
+    state = {
+        itmeInfo: ''
+    }
 
-                </div>
+    render() {
+        const { itmeInfo } = this.state
+        return (
+            <div>
+                {
+                    itmeInfo === ''
+                        ?
+                        <ListPage openItemFun={this.openItem} />
+                        :
+                        <ItemInfoPage itmeInfo={itmeInfo} />
+                }
             </div>
         )
     }
+
+    openItem = (info) => {
+        return () => {
+            this.setState({ itmeInfo: info })
+        }
+    }
+
 }
