@@ -20,8 +20,8 @@ class Sidebar extends React.Component {
         const { history } = this.props
         const { history: { location: { pathname } } } = this.props;
         debugger
-        if (pathname === '/') {
-            const path = setUrl.Page0
+        if (pathname === setUrl.defaultUrl) {
+            const path = setUrl.page0
             history.replace(path)
         }
 
@@ -34,7 +34,7 @@ class Sidebar extends React.Component {
 
     componentWillUpdate() {
         const { history: { location: { pathname } } } = this.props;
-        if (pathname === '/' || pathname === setUrl.Page0) {
+        if (pathname === setUrl.defaultUrl || pathname === setUrl.page0) {
             const { minibar } = this.state
             if (minibar) {
                 this.setState({

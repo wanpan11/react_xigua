@@ -29,7 +29,7 @@ export default class ListPage extends Component {
 
     setUrl = () => {
         return () => {
-            const path = setUrl.ListPage
+            const path = setUrl.listPage
             const { history } = this.props
             history.push(path)
         }
