@@ -22,7 +22,7 @@ class Sidebar extends React.Component {
         debugger
         if (pathname === '/') {
             const path = setUrl.Page0
-            history.push(path)
+            history.replace(path)
         }
 
         /* 导航栏切换 */
