@@ -12,7 +12,6 @@ export default class Page0 extends Component {
             <Switch>
                 {
                     page0.map(ele => {
-                        debugger
                         return <Route path={ele.path} exact={ele.exact} component={ele.component} key={ele.key}></Route>
                     })
                 }

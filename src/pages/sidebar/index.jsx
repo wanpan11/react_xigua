@@ -19,6 +19,7 @@ class Sidebar extends React.Component {
         /* 默认URL切换路由路径 */
         const { history } = this.props
         const { history: { location: { pathname } } } = this.props;
+        debugger
         if (pathname === '/') {
             const path = setUrl.Page0
             history.push(path)
@@ -29,6 +30,19 @@ class Sidebar extends React.Component {
             this.setState({ minibar: true, normalbar: false });
         })
 
+    }
+
+    componentWillUpdate() {
+        const { history: { location: { pathname } } } = this.props;
+        if (pathname === '/' || pathname === setUrl.Page0) {
+            const { minibar } = this.state
+            if (minibar) {
+                this.setState({
+                    minibar: false,
+                    normalbar: true
+                })
+            }
+        }
     }
 
     render() {
