@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import { withRouter } from 'react-router-dom'
-import { sidebar } from '../../router'
+import { sidebar, setUrl } from '../../router'
 import { CSSTransition } from 'react-transition-group';
 import PubSub from 'pubsub-js'
 import './index.scss'
@@ -15,9 +15,20 @@ class Sidebar extends React.Component {
     }
 
     componentDidMount() {
+
+        /* 默认URL切换路由路径 */
+        const { history } = this.props
+        const { history: { location: { pathname } } } = this.props;
+        if (pathname === '/') {
+            const path = setUrl.Page0
+            history.push(path)
+        }
+
+        /* 导航栏切换 */
         PubSub.subscribe('openItemInfo', (_, obj) => {
             this.setState({ minibar: true, normalbar: false });
         })
+
     }
 
     render() {
@@ -54,8 +65,8 @@ class Sidebar extends React.Component {
                             {
                                 sidebar.map(ele => {
                                     return (
-                                        <Fragment>
-                                            <li key={ele.key} className={pathname === ele.path ? 'item_selected' : ''} onClick={this.setUrl(ele.key)}>
+                                        <li key={ele.key}>
+                                            <div className={pathname === ele.path || pathname === ele.defaultPath ? 'item_selected sidebar_itme' : 'sidebar_itme'} onClick={this.setUrl(ele.key)}>
                                                 <div>
                                                     <SmileOutlined />
                                                     <span className="sidebar_list_text">{ele.text}</span>
@@ -67,7 +78,7 @@ class Sidebar extends React.Component {
                                                         :
                                                         (pathname === ele.path ? <DownOutlined /> : <RightOutlined />)
                                                 } */}
-                                            </li>
+                                            </div>
                                             <div className="list_line_box">
                                                 <CSSTransition
                                                     in={pathname === ele.path}
@@ -78,7 +89,7 @@ class Sidebar extends React.Component {
                                                     <div className="list_line"></div>
                                                 </CSSTransition>
                                             </div>
-                                        </Fragment>
+                                        </li>
                                     )
                                 })
                             }

@@ -36,7 +36,7 @@ $theme_colo_1:rgb(250 62 66);
             display: flex;
             flex-direction: column;
 
-            li {
+            .sidebar_itme {
                 color: rgba(0, 0, 0, 0.8);
                 padding: 16px 24px;
                 font-size: 16px;
@@ -52,6 +52,7 @@ $theme_colo_1:rgb(250 62 66);
             }
 
             .item_selected {
+                color: $theme_colo_1;
                 background: #f2f2f2;
             }
 

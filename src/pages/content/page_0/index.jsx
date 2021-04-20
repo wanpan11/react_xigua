@@ -1,34 +1,23 @@
 import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom';
 import './index.scss'
 
-import ListPage from './listPage'
-import ItemInfoPage from './itemInfoPage'
+import { page0 } from '../../../router'
 
-export default class index extends Component {
 
-    state = {
-        itmeInfo: ''
-    }
+export default class Page0 extends Component {
 
     render() {
-        const { itmeInfo } = this.state
         return (
-            <div>
+            <Switch>
                 {
-                    itmeInfo === ''
-                        ?
-                        <ListPage openItemFun={this.openItem} />
-                        :
-                        <ItemInfoPage itmeInfo={itmeInfo} />
+                    page0.map(ele => {
+                        debugger
+                        return <Route path={ele.path} exact={ele.exact} component={ele.component} key={ele.key}></Route>
+                    })
                 }
-            </div>
+            </Switch>
         )
-    }
-
-    openItem = (info) => {
-        return () => {
-            this.setState({ itmeInfo: info })
-        }
     }
 
 }

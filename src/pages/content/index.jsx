@@ -7,7 +7,7 @@ import './index.scss'
 import Loading from '../../components/loading'
 
 
-export default class index extends Component {
+export default class Content extends Component {
 
     state = {
         isDone: false
@@ -31,7 +31,7 @@ export default class index extends Component {
                             {
                                 page.map(ele => {
                                     return (
-                                        <Route path={ele.path} component={ele.component} key={ele.key}></Route>
+                                        <Route path={ele.path} exact={ele.exact} component={ele.component} key={ele.key}></Route>
                                     )
                                 })
                             }

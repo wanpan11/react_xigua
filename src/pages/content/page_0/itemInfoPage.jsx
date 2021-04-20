@@ -8,12 +8,10 @@ export default class ItemInfoPage extends Component {
     }
 
     render() {
-        const { itmeInfo } = this.props
 
         return (
             <div>
-                <h1>{itmeInfo.title}</h1>
-                <span>{itmeInfo.content}</span>
+                infos
             </div>
         )
     }
