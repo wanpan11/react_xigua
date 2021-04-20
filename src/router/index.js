@@ -6,10 +6,10 @@ import Page3 from '../pages/content/page_3'
 
 
 const sidebar = [
-    { 'path': '/', 'key': '000', 'text': '首页' },
-    { 'path': '/Page1', 'key': '001', 'text': '热门活动' },
-    { 'path': '/Page2', 'key': '002', 'text': '精彩推荐' },
-    { 'path': '/Page3', 'key': '003', 'text': '账号设置' }
+    { 'path': '/', 'text': '首页', 'key': '000' },
+    { 'path': '/Page1', 'text': '热门活动', 'key': '001' },
+    { 'path': '/Page2', 'text': '精彩推荐', 'key': '002' },
+    { 'path': '/Page3', 'text': '账号设置', 'key': '003' }
 ]
 const page = [
     { 'path': '/', 'component': Page0, 'key': '000' },

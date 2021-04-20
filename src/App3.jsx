@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './static/style/App3.scss'
 
 import Sidebar from './pages/sidebar'
-import Contrnt from './pages/content';
+import Content from './pages/content';
 
 export default class App3 extends React.Component {
 
@@ -29,11 +29,12 @@ export default class App3 extends React.Component {
             <BrowserRouter>
                 <div id="app" style={{ height: Height }}>
                     <Sidebar></Sidebar>
-                    <Contrnt></Contrnt>
+                    <Content></Content>
                 </div>
             </BrowserRouter>
 
         )
     }
+
 }
 

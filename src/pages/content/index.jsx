@@ -31,11 +31,7 @@ export default class index extends Component {
                             {
                                 page.map(ele => {
                                     return (
-                                        ele.key === '000'
-                                            ?
-                                            <Route exact path={ele.path} component={ele.component} key={ele.key}></Route>
-                                            :
-                                            <Route path={ele.path} component={ele.component} key={ele.key}></Route>
+                                        <Route path={ele.path} component={ele.component} key={ele.key}></Route>
                                     )
                                 })
                             }
