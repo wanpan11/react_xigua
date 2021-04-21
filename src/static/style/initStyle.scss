@@ -31,18 +31,17 @@ a {
 
 /* 滚动条 */
 ::-webkit-scrollbar {
-    width: 14px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.2);
-
+    border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    border: 3px solid rgba(0, 0, 0, 0.2);
-    background-color: #fff;
+    background-color: rgba(0, 0, 0, 0.4);
 }
 
 
