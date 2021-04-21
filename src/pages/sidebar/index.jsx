@@ -2,10 +2,10 @@ import React from "react";
 import { withRouter } from 'react-router-dom'
 import { sidebar, setUrl } from '../../router'
 import { CSSTransition } from 'react-transition-group';
+import { IconFont } from '../../config'
 import PubSub from 'pubsub-js'
 import './index.scss'
 
-import { /* RightOutlined */ SmileOutlined, /* DownOutlined */ MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons';
 
 class Sidebar extends React.Component {
 
@@ -19,7 +19,6 @@ class Sidebar extends React.Component {
         /* 默认URL切换路由路径 */
         const { history } = this.props
         const { history: { location: { pathname } } } = this.props;
-        debugger
         if (pathname === setUrl.defaultUrl) {
             const path = setUrl.page0
             history.replace(path)
@@ -58,7 +57,7 @@ class Sidebar extends React.Component {
                     unmountOnExit
                 >
                     <div className="sidebar_box_minibar" onClick={this.switchSidebar()} >
-                        <MenuUnfoldOutlined />
+                        <IconFont type="iconzhedie_right" />
                     </div>
                 </CSSTransition>
 
@@ -72,7 +71,6 @@ class Sidebar extends React.Component {
 
                         <div className="sidebar_logo">
                             <div className="logo"></div>
-                            {/* <span>西瓜视频</span> */}
                         </div>
 
                         <ul className="sidebar_list">
@@ -82,16 +80,9 @@ class Sidebar extends React.Component {
                                         <li key={ele.key}>
                                             <div className={pathname === ele.path || pathname === ele.defaultPath ? 'item_selected sidebar_itme' : 'sidebar_itme'} onClick={this.setUrl(ele.key)}>
                                                 <div>
-                                                    <SmileOutlined />
+                                                    {ele.icon ? <IconFont type={ele.icon} className="sidebar_list_icon" /> : ''}
                                                     <span className="sidebar_list_text">{ele.text}</span>
                                                 </div>
-                                                {/* {
-                                                    ele.key === '000'
-                                                        ?
-                                                        ''
-                                                        :
-                                                        (pathname === ele.path ? <DownOutlined /> : <RightOutlined />)
-                                                } */}
                                             </div>
                                             <div className="list_line_box">
                                                 <CSSTransition
@@ -110,7 +101,7 @@ class Sidebar extends React.Component {
                         </ul>
 
                         <div className="sidebar_control" onClick={this.switchSidebar()}>
-                            <MenuFoldOutlined />
+                            <IconFont type="iconzhedie_left" />
                         </div>
 
                     </div>

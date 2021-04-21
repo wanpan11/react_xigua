@@ -9,10 +9,10 @@ import Page0ContentItem from '../pages/content/page_0/itemInfoPage'
 
 /* 导航路由 */
 const sidebar = [
-    { 'path': '/page0', 'defaultPath': '/', 'exact': false, 'text': '首页', 'key': 'sidebar_000' },
-    { 'path': '/page1', 'defaultPath': '', 'exact': false, 'text': '热门活动', 'key': 'sidebar_001' },
-    { 'path': '/page2', 'defaultPath': '', 'exact': false, 'text': '精彩推荐', 'key': 'sidebar_002' },
-    { 'path': '/page3', 'defaultPath': '', 'exact': false, 'text': '账号设置', 'key': 'sidebar_003' }
+    { 'path': '/page0', 'defaultPath': '/', 'exact': false, 'text': '首页', 'icon': 'iconfenzu', 'key': 'sidebar_000' },
+    { 'path': '/page1', 'defaultPath': '', 'exact': false, 'text': '热门活动', 'icon': 'iconjingdian', 'key': 'sidebar_001' },
+    { 'path': '/page2', 'defaultPath': '', 'exact': false, 'text': '精彩推荐', 'icon': 'icongouwu', 'key': 'sidebar_002' },
+    { 'path': '/page3', 'defaultPath': '', 'exact': false, 'text': '账号设置', 'icon': 'iconwode', 'key': 'sidebar_003' }
 ]
 
 /* Conten 路由 */
