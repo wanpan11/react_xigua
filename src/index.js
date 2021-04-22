@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom'
 
 //引入初始化样式
 import './static/style/initStyle.scss'
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 //引入组件
 // import App from './App'

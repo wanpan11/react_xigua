@@ -3,8 +3,8 @@ import { setUrl } from '../../../../config/router.config'
 import './index.scss'
 import axios from 'axios'
 // import PubSub from 'pubsub-js'
-
-import { Loading } from '../../../../components'
+import { Skeleton } from 'antd';
+// import { Loading } from '../../../../components'
 
 
 export default class ListPage extends Component {
@@ -41,7 +41,7 @@ export default class ListPage extends Component {
                             }
                         </div>
                         :
-                        <Loading />
+                        <Skeleton active />
                 }
             </div>
         )
@@ -52,7 +52,7 @@ export default class ListPage extends Component {
         if (done) {
             return
         } else {
-            axios.get('http://localhost:4400/data.json').then(res => {
+            axios.get('/api/getTodayTask').then(res => {
                 setTimeout(() => {
                     this.setState({ data: res.data, done: true })
                 }, 300);

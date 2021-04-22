@@ -24,7 +24,7 @@ class Sidebar extends React.Component {
 
     UNSAFE_componentWillUpdate() {
         const { history: { location: { pathname } } } = this.props;
-        if (pathname === setUrl.defaultUrl || pathname === setUrl.page0) {
+        if (pathname === setUrl.defaultUrl) {
             const { minibar } = this.state
             if (minibar) {
                 this.setState({ minibar: false })
