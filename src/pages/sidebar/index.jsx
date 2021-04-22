@@ -1,10 +1,9 @@
 import React from "react";
-import { withRouter, NavLink } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
+import { sidebar, setUrl } from '../../router'
 import { CSSTransition } from 'react-transition-group';
-import { setUrl, sidebarInfo } from '../../config/router.config'
-import { IconFont } from '../../config/iconfont.config'
+import { IconFont } from '../../config'
 import PubSub from 'pubsub-js'
-// import axios from 'axios'
 import './index.scss'
 
 
@@ -12,7 +11,7 @@ class Sidebar extends React.Component {
 
     state = {
         minibar: false,
-        normalbar: true,
+        normalbar: true
     }
 
     componentDidMount() {
@@ -32,7 +31,7 @@ class Sidebar extends React.Component {
 
     }
 
-    UNSAFE_componentWillUpdate() {
+    componentWillUpdate() {
         const { history: { location: { pathname } } } = this.props;
         if (pathname === setUrl.defaultUrl || pathname === setUrl.page0) {
             const { minibar } = this.state
@@ -76,15 +75,15 @@ class Sidebar extends React.Component {
 
                         <ul className="sidebar_list">
                             {
-                                sidebarInfo.map(ele => {
+                                sidebar.map(ele => {
                                     return (
                                         <li key={ele.key}>
-                                            <NavLink to={ele.path} className="sidebar_itme">
+                                            <div className={pathname === ele.path || pathname === ele.defaultPath ? 'item_selected sidebar_itme' : 'sidebar_itme'} onClick={this.setUrl(ele.key)}>
                                                 <div>
                                                     {ele.icon ? <IconFont type={ele.icon} className="sidebar_list_icon" /> : ''}
                                                     <span className="sidebar_list_text">{ele.text}</span>
                                                 </div>
-                                            </NavLink>
+                                            </div>
                                             <div className="list_line_box">
                                                 <CSSTransition
                                                     in={pathname === ele.path}
@@ -112,8 +111,18 @@ class Sidebar extends React.Component {
         )
     }
 
-
-
+    setUrl = (key) => {
+        return () => {
+            let path = ''
+            sidebar.forEach(ele => {
+                if (ele.key === key) {
+                    path = ele.path
+                }
+            })
+            const { history } = this.props
+            history.push(path)
+        }
+    }
 
     switchSidebar = () => {
         return () => {

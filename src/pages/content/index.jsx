@@ -1,17 +1,47 @@
-/* 一级页面 */
-import Page0 from './page_0'
-import Page1 from './page_1'
-import Page2 from './page_2'
-import Page3 from './page_3'
+import React, { Component } from 'react'
+import { Switch, Route } from 'react-router-dom';
+import { page } from '../../router'
+import PubSub from 'pubsub-js'
 import './index.scss'
-
-/* 二级页面 */
-import ItemInfoPage from './page_0/itemInfoPage'
+import Loading from '../../components/loading'
 
 
+export default class Content extends Component {
 
-const page0 = {
-    ItemInfoPage
+    state = {
+        isDone: false
+    }
+
+    componentDidMount() {
+        PubSub.subscribe('getListPageInfo', (_, obj) => {
+            const code = obj.code
+            if (code === 114) {
+                this.setState({ isDone: true });
+            } else {
+                this.setState({ isDone: false });
+            }
+        })
+    }
+
+    render() {
+
+        const { isDone } = this.state
+
+        return (
+            <div className="content_box">
+                {isDone ? null : <Loading />}
+                {
+                    <Switch>
+                        {
+                            page.map(ele => {
+                                return (
+                                    <Route path={ele.path} exact={ele.exact} component={ele.component} key={ele.key} />
+                                )
+                            })
+                        }
+                    </Switch>
+                }
+            </div>
+        )
+    }
 }
-
-export { Page0, Page1, Page2, Page3, page0 }

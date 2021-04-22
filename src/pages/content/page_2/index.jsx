@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Page2 extends Component {
+export default class page_2 extends Component {
     render() {
         return (
             <div>
