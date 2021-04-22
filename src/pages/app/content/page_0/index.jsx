@@ -1,54 +1,65 @@
 import React, { Component } from 'react'
 import { setUrl } from '../../../../config/router.config'
+import './index.scss'
 import axios from 'axios'
-import PubSub from 'pubsub-js'
+// import PubSub from 'pubsub-js'
+
+import { Loading } from '../../../../components'
 
 
 export default class ListPage extends Component {
 
     state = {
-        data: []
+        data: [],
+        done: false
     }
 
     componentDidMount() {
-        PubSub.publish('getListPageInfo', { code: 113 })
-        axios.get('http://localhost:4400/data.json').then(res => {
-            console.log(res);
-            setTimeout(() => {
-                PubSub.publish('getListPageInfo', { code: 114 })
-                this.setState({ data: res.data })
-            }, 300);
-        }).catch(err => {
-            console.log(err);
-        })
+        this.getListPageData()
     }
 
     render() {
-        const { data } = this.state
+        const { data, done } = this.state
         return (
             <div className="card_box">
-                <div className="card_item_box">
-                    {
-                        data.length > 0
-                            ?
-                            data.map(ele => {
-                                return (
-                                    <div className="card_item" key={ele.key} onClick={this.setUrl()} >
-                                        <img src="" alt="" />
-                                        <div>
-                                            <h1>{ele.title}</h1>
-                                            <span>{ele.content}</span>
+                {
+                    done
+                        ?
+                        <div className="card_item_box">
+                            {
+                                data.map(ele => {
+                                    return (
+                                        <div className="card_item" key={ele.key} onClick={this.setUrl()} >
+                                            <img src="" alt="" />
+                                            <div>
+                                                <h1>{ele.title}</h1>
+                                                <span>{ele.content}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                )
-                            })
-                            :
-                            null
-                    }
-
-                </div>
+                                    )
+                                })
+                            }
+                        </div>
+                        :
+                        <Loading />
+                }
             </div>
         )
+    }
+
+    getListPageData = () => {
+        const { done } = this.state
+        if (done) {
+            return
+        } else {
+            axios.get('http://localhost:4400/data.json').then(res => {
+                setTimeout(() => {
+                    this.setState({ data: res.data, done: true })
+                }, 300);
+            }).catch(err => {
+                console.log(err);
+            })
+        }
     }
 
     setUrl = () => {

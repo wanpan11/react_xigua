@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PubSub from 'pubsub-js'
 
-export default class ItemInfoPage extends Component {
+export default class ItemInfo extends Component {
 
     componentDidMount() {
         PubSub.publish('openItemInfo', { msg: 'success' })

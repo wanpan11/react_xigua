@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from 'react-router-dom'
+import { withRouter, NavLink } from 'react-router-dom'
 import { sidebarInfo, setUrl } from '../../../config/router.config'
 import { CSSTransition } from 'react-transition-group';
 import { IconFont } from '../../../config/iconfont.config'
@@ -11,42 +11,30 @@ class Sidebar extends React.Component {
 
     state = {
         minibar: false,
-        normalbar: true
     }
 
     componentDidMount() {
 
-        /* 默认URL切换路由路径 */
-        const { history } = this.props
-        const { history: { location: { pathname } } } = this.props;
-        if (pathname === setUrl.defaultUrl) {
-            const path = setUrl.page0
-            history.replace(path)
-        }
-
         /* 导航栏切换 */
         PubSub.subscribe('openItemInfo', (_, obj) => {
-            this.setState({ minibar: true, normalbar: false });
+            this.setState({ minibar: true });
         })
 
     }
 
-    componentWillUpdate() {
+    UNSAFE_componentWillUpdate() {
         const { history: { location: { pathname } } } = this.props;
         if (pathname === setUrl.defaultUrl || pathname === setUrl.page0) {
             const { minibar } = this.state
             if (minibar) {
-                this.setState({
-                    minibar: false,
-                    normalbar: true
-                })
+                this.setState({ minibar: false })
             }
         }
     }
 
     render() {
         const { history: { location: { pathname } } } = this.props;
-        const { minibar, normalbar } = this.state
+        const { minibar } = this.state
         return (
             <div className="sidebar_box">
 
@@ -62,7 +50,7 @@ class Sidebar extends React.Component {
                 </CSSTransition>
 
                 <CSSTransition
-                    in={normalbar}
+                    in={!minibar}
                     timeout={300}
                     classNames="sidebar_normal"
                     unmountOnExit
@@ -77,13 +65,13 @@ class Sidebar extends React.Component {
                             {
                                 sidebarInfo.map(ele => {
                                     return (
-                                        <li key={ele.key}>
-                                            <div className={pathname === ele.path || pathname === ele.defaultPath ? 'item_selected sidebar_itme' : 'sidebar_itme'} onClick={this.setUrl(ele.key)}>
+                                        <li key={ele.key} >
+                                            <NavLink to={ele.path} className="sidebar_itme" >
                                                 <div>
                                                     {ele.icon ? <IconFont type={ele.icon} className="sidebar_list_icon" /> : ''}
                                                     <span className="sidebar_list_text">{ele.text}</span>
                                                 </div>
-                                            </div>
+                                            </NavLink>
                                             <div className="list_line_box">
                                                 <CSSTransition
                                                     in={pathname === ele.path}
@@ -111,25 +99,11 @@ class Sidebar extends React.Component {
         )
     }
 
-    setUrl = (key) => {
-        return () => {
-            let path = ''
-            sidebarInfo.forEach(ele => {
-                if (ele.key === key) {
-                    path = ele.path
-                }
-            })
-            const { history } = this.props
-            history.push(path)
-        }
-    }
-
     switchSidebar = () => {
         return () => {
-            const { minibar, normalbar } = this.state
+            const { minibar } = this.state
             this.setState({
                 minibar: minibar ? false : true,
-                normalbar: normalbar ? false : true
             })
         }
     }

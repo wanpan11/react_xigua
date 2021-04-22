@@ -40,7 +40,7 @@ class NavBar extends React.Component {
     }
 
     //组件更新完毕时调用
-    componentDidUpdate(preProps, preState) {
+    UNSAFE_componentWillUpdate(preProps, preState) {
         // console.log('componentDidUpdate', preProps, preState);
     }
 
