@@ -1,8 +1,8 @@
 import React from "react";
 import { withRouter } from 'react-router-dom'
-import { sidebar, setUrl } from '../../router'
+import { sidebarInfo, setUrl } from '../../../config/router.config'
 import { CSSTransition } from 'react-transition-group';
-import { IconFont } from '../../config'
+import { IconFont } from '../../../config/iconfont.config'
 import PubSub from 'pubsub-js'
 import './index.scss'
 
@@ -75,7 +75,7 @@ class Sidebar extends React.Component {
 
                         <ul className="sidebar_list">
                             {
-                                sidebar.map(ele => {
+                                sidebarInfo.map(ele => {
                                     return (
                                         <li key={ele.key}>
                                             <div className={pathname === ele.path || pathname === ele.defaultPath ? 'item_selected sidebar_itme' : 'sidebar_itme'} onClick={this.setUrl(ele.key)}>
@@ -114,7 +114,7 @@ class Sidebar extends React.Component {
     setUrl = (key) => {
         return () => {
             let path = ''
-            sidebar.forEach(ele => {
+            sidebarInfo.forEach(ele => {
                 if (ele.key === key) {
                     path = ele.path
                 }

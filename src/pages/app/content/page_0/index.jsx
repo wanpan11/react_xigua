@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { setUrl } from '../../../router'
+import { setUrl } from '../../../../config/router.config'
 import axios from 'axios'
 import PubSub from 'pubsub-js'
 

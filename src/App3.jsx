@@ -1,38 +1,16 @@
 //引入依赖
-import React from "react";
-//页面路由
-import { BrowserRouter } from 'react-router-dom';
-
+import React from "react"
+import { BrowserRouter } from 'react-router-dom'
+import { ContentPage } from './config/router.config'
 import './static/style/App3.scss'
-
-import Sidebar from './pages/sidebar'
-import Content from './pages/content';
 
 export default class App3 extends React.Component {
 
-    state = {
-        Height: '0',
-    }
-
-    componentDidMount() {
-        const innerHeight = window.innerHeight + 'px'
-        this.setState({ Height: innerHeight });
-        window.onresize = () => {
-            const innerHeight = window.innerHeight + 'px'
-            this.setState({ Height: innerHeight });
-        }
-    }
-
     render() {
-        const { Height } = this.state
         return (
             <BrowserRouter>
-                <div id="app" style={{ height: Height }}>
-                    <Sidebar></Sidebar>
-                    <Content></Content>
-                </div>
+                {ContentPage()}
             </BrowserRouter>
-
         )
     }
 

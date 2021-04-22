@@ -1,10 +1,10 @@
-import Page0 from '../pages/content/page_0'
-import Page1 from '../pages/content/page_1'
-import Page2 from '../pages/content/page_2'
-import Page3 from '../pages/content/page_3'
+import Page0 from '../pages/user/content/page_0'
+import Page1 from '../pages/user/content/page_1'
+import Page2 from '../pages/user/content/page_2'
+import Page3 from '../pages/user/content/page_3'
 
-import Page0Content from '../pages/content/page_0/listPage'
-import Page0ContentItem from '../pages/content/page_0/itemInfoPage'
+import Page0Content from '../pages/user/content/page_0'
+import Page0ContentItem from '../pages/user/content/page_0/itemInfoPage'
 
 
 /* 导航路由 */
