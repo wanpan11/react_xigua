@@ -6,7 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './static/style/App3.scss'
 
 import Sidebar from './pages/sidebar'
-import Content from './pages/content';
+import { ContentPage } from './config/router.config'
 
 export default class App3 extends React.Component {
 
@@ -15,12 +15,15 @@ export default class App3 extends React.Component {
     }
 
     componentDidMount() {
+
         const innerHeight = window.innerHeight + 'px'
         this.setState({ Height: innerHeight });
+
         window.onresize = () => {
             const innerHeight = window.innerHeight + 'px'
             this.setState({ Height: innerHeight });
         }
+
     }
 
     render() {
@@ -29,7 +32,9 @@ export default class App3 extends React.Component {
             <BrowserRouter>
                 <div id="app" style={{ height: Height }}>
                     <Sidebar></Sidebar>
-                    <Content></Content>
+                    <div className="content_box">
+                        <ContentPage></ContentPage>
+                    </div>
                 </div>
             </BrowserRouter>
 

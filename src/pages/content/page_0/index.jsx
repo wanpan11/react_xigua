@@ -1,22 +1,63 @@
 import React, { Component } from 'react'
-import { Switch, Route } from 'react-router-dom';
-import './index.scss'
+import { setUrl } from '../../../config/router.config'
+import axios from 'axios'
+import PubSub from 'pubsub-js'
 
-import { page0 } from '../../../router'
 
 
-export default class Page0 extends Component {
+export default class ListPage extends Component {
+
+    state = {
+        data: []
+    }
+
+    componentDidMount() {
+        PubSub.publish('getListPageInfo', { code: 113 })
+        axios.get('http://localhost:4400/data.json').then(res => {
+            console.log(res);
+            setTimeout(() => {
+                PubSub.publish('getListPageInfo', { code: 114 })
+                this.setState({ data: res.data })
+            }, 300);
+        }).catch(err => {
+            console.log(err);
+        })
+    }
 
     render() {
+        const { data } = this.state
         return (
-            <Switch>
-                {
-                    page0.map(ele => {
-                        return <Route path={ele.path} exact={ele.exact} component={ele.component} key={ele.key}></Route>
-                    })
-                }
-            </Switch>
+            <div className="card_box">
+                <div className="card_item_box">
+                    {
+                        data.length > 0
+                            ?
+                            data.map(ele => {
+                                return (
+                                    <div className="card_item" key={ele.key} onClick={this.setUrl()} >
+                                        <img src="" alt="" />
+                                        <div>
+                                            <h1>{ele.title}</h1>
+                                            <span>{ele.content}</span>
+                                        </div>
+                                    </div>
+                                )
+                            })
+                            :
+                            null
+                    }
+
+                </div>
+            </div>
         )
+    }
+
+    setUrl = () => {
+        return () => {
+            const path = setUrl.listPage
+            const { history } = this.props
+            history.push(path)
+        }
     }
 
 }
