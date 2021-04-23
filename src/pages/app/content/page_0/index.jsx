@@ -3,8 +3,8 @@ import { setUrl } from '../../../../config/router.config'
 import './index.scss'
 import axios from 'axios'
 // import PubSub from 'pubsub-js'
-import { Skeleton } from 'antd';
-// import { Loading } from '../../../../components'
+// import { Skeleton } from 'antd';
+import { Loading } from '../../../../components'
 
 
 export default class ListPage extends Component {
@@ -41,7 +41,8 @@ export default class ListPage extends Component {
                             }
                         </div>
                         :
-                        <Skeleton active />
+                        // <Skeleton active />
+                        <Loading />
                 }
             </div>
         )
