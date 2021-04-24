@@ -1,5 +1,7 @@
 import Loading from './loading'
-import MySwitch from './mySwitch'
+import Myswitch from './mySwitch'
 import Mycard from './mycard'
+import Myinput from './myinput'
+import Mybutton from './mybutton'
 
-export { Loading, MySwitch, Mycard }
+export { Loading, Myswitch, Mycard, Myinput, Mybutton }

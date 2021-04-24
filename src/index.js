@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom'
 import store from './redux/store'
 
 //引入初始化样式
-import './static/style/initStyle.scss'
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
+import './static/style/init.scss'
 
 //引入组件
 import App3 from './App3'

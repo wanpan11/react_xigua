@@ -4,7 +4,7 @@ import { Switch } from 'antd';
 
 
 
-export default class MySwitch extends Component {
+export default class Myswitch extends Component {
 
     render() {
         const { children, oncheng, checked } = this.props
