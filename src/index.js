@@ -8,8 +8,6 @@ import './static/style/initStyle.scss'
 import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 
 //引入组件
-// import App from './App'
-// import App2 from './App2'
 import App3 from './App3'
 
 //将组件渲染到页面1
