@@ -1,13 +1,15 @@
 /* 引入核心依赖 */
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 
 /* 引入reducer */
 import themeReducre from './theme_reducre'
 import sidebarReducre from './sidebar_reducre'
 
-const themeStore = createStore(themeReducre)
+/* 合并多个 reducre */
+const reducer = combineReducers({
+    themeReducre,
+    sidebarReducre
+})
 
-/* sidebar 自动隐藏设置 */
-const sidebarStore = createStore(sidebarReducre)
+export default createStore(reducer)
 
-export { themeStore, sidebarStore };

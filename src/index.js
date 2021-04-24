@@ -1,7 +1,7 @@
 //引入依赖
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { sidebarStore } from './redux/store'
+import store from './redux/store'
 
 //引入初始化样式
 import './static/style/initStyle.scss'
@@ -14,9 +14,9 @@ import App3 from './App3'
 ReactDOM.render(<App3 />, document.getElementById('root'))
 
 
-/* 监听sidebarStore变化 */
-sidebarStore.subscribe(() => {
-    console.log(sidebarStore.getState());
+/* 监听store变化 */
+store.subscribe(() => {
+    console.log(store.getState());
     ReactDOM.render(<App3 />, document.getElementById('root'))
 
 })
