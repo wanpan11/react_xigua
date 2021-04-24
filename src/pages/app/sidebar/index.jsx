@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter, NavLink } from 'react-router-dom'
+import { withRouter, NavLink, Link } from 'react-router-dom'
 import { sidebarInfo, setUrl } from '../../../config/router.config'
 import { CSSTransition } from 'react-transition-group';
 import { IconFont } from '../../../config/iconfont.config'
@@ -58,7 +58,9 @@ class Sidebar extends React.Component {
                     <div className="sidebar_box_normal">
 
                         <div className="sidebar_logo">
-                            <div className="logo"></div>
+                            <Link to="/index/page0">
+                                <div className="logo"></div>
+                            </Link>
                         </div>
 
                         <ul className="sidebar_list">

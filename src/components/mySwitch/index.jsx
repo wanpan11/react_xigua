@@ -2,18 +2,16 @@ import React, { Component } from 'react'
 import './index.scss'
 import { Switch } from 'antd';
 
-function onChange(checked) {
-    console.log(`switch to ${checked}`);
-}
+
 
 export default class MySwitch extends Component {
 
     render() {
-        const { children } = this.props
+        const { children, oncheng, checked } = this.props
         return (
             <div className="mySwitch_box">
                 <div>{children}</div>
-                <Switch defaultChecked onChange={onChange} />
+                <Switch onChange={oncheng} checked={checked} />
             </div>
         )
     }

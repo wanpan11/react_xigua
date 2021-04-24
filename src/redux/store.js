@@ -2,10 +2,10 @@
 import { createStore } from 'redux';
 
 /* 引入reducer */
-import countReducer from './count_reducre'
 import themeReducre from './theme_reducre'
+import sidebarReducre from './sidebar_reducre'
 
-const countStore = createStore(countReducer)
 const themeStore = createStore(themeReducre)
+const sidebarStore = createStore(sidebarReducre)
 
-export { countStore, themeStore };
+export { themeStore, sidebarStore };
