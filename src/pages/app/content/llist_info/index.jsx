@@ -5,7 +5,7 @@ import PubSub from 'pubsub-js'
 export default class ItemInfo extends Component {
 
     componentDidMount() {
-        const { sidebarAutoDisplay } = store.getState()
+        const { sidebarReducre: { sidebarAutoDisplay } } = store.getState()
         sidebarAutoDisplay && PubSub.publish('openItemInfo', { msg: 'success' })
     }
 

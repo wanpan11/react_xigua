@@ -9,7 +9,7 @@ const { Content } = Layout;
 
 export default class page_3 extends Component {
     render() {
-        const { sidebarAutoDisplay } = store.getState()
+        const { sidebarReducre: { sidebarAutoDisplay } } = store.getState()
         return (
             <Layout className="layout">
                 <Content>
