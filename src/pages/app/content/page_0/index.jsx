@@ -3,8 +3,8 @@ import { setUrl } from '../../../../config/router.config'
 import './index.scss'
 import axios from 'axios'
 // import PubSub from 'pubsub-js'
-// import { Skeleton } from 'antd';
 import { Loading } from '../../../../components'
+import smartaTool from '../../../../util/smarteTool.js'
 
 
 export default class ListPage extends Component {
@@ -49,14 +49,17 @@ export default class ListPage extends Component {
     }
 
     getListPageData = () => {
+        debugger
         const { done } = this.state
         if (done) {
             return
         } else {
             axios.get('/mock/listPageInfo').then(res => {
-                debugger
+                const data = smartaTool.getDeepVal(res, 'data.dataSource')
+                const code = smartaTool.getDeepVal(res, 'data.code')
                 setTimeout(() => {
-                    this.setState({ data: res.data, done: true })
+                    console.log(data, code);
+                    this.setState({ data: data, done: true })
                 }, 300);
             }).catch(err => {
                 console.log(err);

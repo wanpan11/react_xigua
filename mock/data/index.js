@@ -1,7 +1,7 @@
-const page0 = require('./page_0')
+const page_0 = require('./page_0')
 
-const data = {
-    page0
+
+
+module.exports = {
+    page_0: page_0
 }
-
-module.exports.data = data

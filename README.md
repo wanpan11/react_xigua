@@ -4,6 +4,9 @@
 //安装依赖
 yarn
 
-//运行
+//react运行
 yarn start
+
+//模拟数据 mock运行 新开终端运行
+yarn mock
 ```
