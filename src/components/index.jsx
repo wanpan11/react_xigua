@@ -1,7 +1,7 @@
 import Loading from './loading'
 import Myswitch from './mySwitch'
 import Mycard from './mycard'
-import Myinput from './myinput'
+import MyinputAnimeta from './myinput_animeta'
 import Mybutton from './mybutton'
 
-export { Loading, Myswitch, Mycard, Myinput, Mybutton }
+export { Loading, Myswitch, Mycard, MyinputAnimeta, Mybutton }

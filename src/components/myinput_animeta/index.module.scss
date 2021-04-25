@@ -1,0 +1,133 @@
+$theme_colo_1:rgb(250 62 66);
+
+.myinput {
+    position: relative;
+    height: 88px;
+
+    font: {
+        size: 20px
+    }
+
+    input {
+        position: absolute;
+        z-index: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    }
+
+    .input_type_text,
+    .input_type_text_active,
+    .input_type_text_exit,
+    .input_type_text_done {
+        position: absolute;
+        z-index: 1;
+        bottom: 6px;
+        left: 0;
+        animation-duration: 200ms;
+        animation-fill-mode: forwards;
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    .input_type_text_done {
+        bottom: 40px;
+
+        font: {
+            size: 16px;
+        }
+    }
+
+    .input_type_text_active {
+        animation-name: input_type_text_active;
+    }
+
+    .input_type_text_exit {
+        animation-name: input_type_text_exit;
+    }
+
+
+
+    .input_line,
+    .input_line_active,
+    .input_line_exit {
+        height: 1px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        animation-duration: 160ms;
+        animation-fill-mode: forwards;
+    }
+
+    .input_line_active {
+        background-color: $theme_colo_1;
+        animation-name: input_line_active;
+    }
+
+    .input_line_exit {
+        background-color: $theme_colo_1;
+        animation-name: input_line_exit;
+    }
+}
+
+
+
+@keyframes input_type_text_active {
+    from {
+        bottom: 6px;
+
+        font: {
+            size: 20px;
+        }
+    }
+
+    to {
+        bottom: 40px;
+
+        font: {
+            size: 16px;
+        }
+    }
+}
+
+@keyframes input_type_text_exit {
+    from {
+        bottom: 40px;
+
+        font: {
+            size: 16px;
+        }
+    }
+
+    to {
+        bottom: 6px;
+
+        font: {
+            size: 20px;
+        }
+    }
+}
+
+
+@keyframes input_line_active {
+    from {
+        width: 0%;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes input_line_exit {
+    from {
+        width: 100%;
+    }
+
+    to {
+        width: 0%;
+    }
+}
