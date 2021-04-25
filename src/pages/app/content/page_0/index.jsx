@@ -53,7 +53,8 @@ export default class ListPage extends Component {
         if (done) {
             return
         } else {
-            axios.get('/api/getTodayTask').then(res => {
+            axios.get('/mock/listPageInfo').then(res => {
+                debugger
                 setTimeout(() => {
                     this.setState({ data: res.data, done: true })
                 }, 300);

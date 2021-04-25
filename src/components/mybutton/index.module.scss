@@ -1,4 +1,5 @@
-$theme_colo_1:rgb(250 62 66);
+$theme_colo_1:#fa3e42;
+$theme_colo_2:#ff0018;
 
 .mybutton {
     margin-top: 40px;
@@ -17,5 +18,9 @@ $theme_colo_1:rgb(250 62 66);
         font: {
             size: 20px;
         }
+    }
+
+    .big_btn:hover {
+        background-color: $theme_colo_2;
     }
 }

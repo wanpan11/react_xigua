@@ -37,7 +37,6 @@ export default class Login extends Component {
     }
 
     onchange = (type) => {
-        debugger
         return (evn) => {
             const value = smarteTool.getDeepVal(evn, 'target.value')
             let changeState = {}

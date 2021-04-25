@@ -11,6 +11,11 @@ module.exports = function (app) {
             target: 'http://localhost:8889',
             changeOrigin: true,
             pathRewrite: { '^/oms': '' }
+        }),
+        createProxyMiddleware('/mock', {
+            target: 'http://localhost:4444',
+            changeOrigin: true,
+            pathRewrite: { '^/mock': '' }
         })
     )
 }

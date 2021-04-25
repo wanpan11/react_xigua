@@ -39,7 +39,7 @@ export default class MyinputAnimeta extends Component {
         } else {
             line_className = styles.input_line
         }
-        debugger
+
         return (
             <div className={styles.myinput} >
                 <span className={tetx_className} >{children}</span>
