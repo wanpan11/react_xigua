@@ -29,7 +29,7 @@ export default class ListPage extends Component {
                             {
                                 data.map(ele => {
                                     return (
-                                        <div className="card_item" key={ele.key} onClick={this.setUrl()} >
+                                        <div className="card_item" key={ele.key} onClick={this.setUrl(ele.key, ele.title)} >
                                             <img src="" alt="" />
                                             <div>
                                                 <h1>{ele.title}</h1>
@@ -41,7 +41,6 @@ export default class ListPage extends Component {
                             }
                         </div>
                         :
-                        // <Skeleton active />
                         <Loading />
                 }
             </div>
@@ -49,29 +48,31 @@ export default class ListPage extends Component {
     }
 
     getListPageData = () => {
-        debugger
         const { done } = this.state
         if (done) {
             return
         } else {
             axios.get('/mock/listPageInfo').then(res => {
                 const data = smartaTool.getDeepVal(res, 'data.dataSource')
-                const code = smartaTool.getDeepVal(res, 'data.code')
+                // const code = smartaTool.getDeepVal(res, 'data.code')
                 setTimeout(() => {
-                    console.log(data, code);
                     this.setState({ data: data, done: true })
-                }, 300);
+                }, 200);
             }).catch(err => {
                 console.log(err);
             })
         }
     }
 
-    setUrl = () => {
+    setUrl = (key, title) => {
         return () => {
             const path = setUrl.listPage
             const { history } = this.props
-            history.push(path)
+            let params = {}
+            params.key = key
+            params.title = title
+            const openPath = smartaTool.setUrlParams(path, params)
+            history.push(openPath)
         }
     }
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter, NavLink, Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { sidebarInfo, setUrl } from '../../../config/router.config'
 import { CSSTransition } from 'react-transition-group';
 import { IconFont } from '../../../config/iconfont.config'
@@ -68,12 +68,12 @@ class Sidebar extends React.Component {
                                 sidebarInfo.map(ele => {
                                     return (
                                         <li key={ele.key} >
-                                            <NavLink to={ele.path} className="sidebar_itme" >
+                                            <Link to={ele.path} className={ele.path === pathname ? 'sidebar_itme active' : 'sidebar_itme'} >
                                                 <div>
                                                     {ele.icon ? <IconFont type={ele.icon} className="sidebar_list_icon" /> : ''}
                                                     <span className="sidebar_list_text">{ele.text}</span>
                                                 </div>
-                                            </NavLink>
+                                            </Link>
                                             <div className="list_line_box">
                                                 <CSSTransition
                                                     in={pathname === ele.path}

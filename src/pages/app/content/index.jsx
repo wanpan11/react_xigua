@@ -16,11 +16,11 @@ export default class Content extends Component {
         return (
             <div className="content_box">
                 <Switch>
-                    <Route path="/index/page0" exact component={Page0} ></Route>
+                    <Route path="/index" exact component={Page0} ></Route>
                     <Route path="/index/page1" component={Page1} ></Route>
                     <Route path="/index/page2" component={Page2} ></Route>
                     <Route path="/index/page3" component={Page3} ></Route>
-                    <Route path="/index/page0/itemInfo" component={ItemInfo} ></Route>
+                    <Route path="/index/itemInfo" component={ItemInfo} ></Route>
                 </Switch>
             </div>
         )

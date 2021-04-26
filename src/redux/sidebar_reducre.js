@@ -2,7 +2,7 @@ import { SIDEBAR_AUTO_DISPLAY, SIDEBAR_AUTO_NONE } from './constant'
 
 /* sidebar 自动隐藏设置 */
 const initState = {
-    sidebarAutoDisplay: true
+    sidebarAutoDisplay: false
 };
 
 /**

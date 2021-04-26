@@ -1,6 +1,5 @@
 // import _L from 'lodash'
 
-
 const smarteTool = {}
 
 /**
@@ -101,5 +100,57 @@ const setDeepVal = (data, keyArr, newValue) => {
     lastSecondObj[lastKey] = newValue
 }
 smarteTool.setDeepVal = setDeepVal
+
+/**
+ * 拼接get请求参数
+ * @param {string} path 
+ * @param {object} params 
+ * @returns {string}
+ */
+const setUrlParams = (path, params) => {
+    if (typeof path !== 'string') {
+        return 'path is not string'
+    }
+    if (typeof params !== 'object') {
+        return 'params is not object'
+    }
+    let index = 0
+    path += '?'
+    for (let key in params) {
+        if (index === 0) {
+            index++
+            path += `${key}=${params[key]}`
+        } else {
+            path += `&${key}=${params[key]}`
+        }
+    }
+    return path
+}
+smarteTool.setUrlParams = setUrlParams
+
+/**
+ * 获取get请求参数
+ * @param {string} path 
+ * @param {object} params 
+ * @returns {string}
+ */
+const getUrlParams = (url) => {
+    if (typeof url !== 'string') {
+        return 'path is not string'
+    }
+    url = decodeURI(url)
+    const paramsStr = url.slice((url.indexOf('?')) + 1)
+    let params = {}
+    let item = paramsStr.split('&')
+    item.forEach(ele => {
+        let index = ele.indexOf('=')
+        let key = ele.slice(0, index)
+        let val = ele.slice(index + 1)
+        params[key] = val
+    })
+    return params
+}
+smarteTool.getUrlParams = getUrlParams
+
 
 export default smarteTool

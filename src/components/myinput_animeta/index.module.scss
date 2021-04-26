@@ -10,13 +10,14 @@ $theme_colo_1:rgb(250 62 66);
 
     input {
         position: absolute;
-        z-index: 0;
+        z-index: 1;
         bottom: 0;
         left: 0;
         width: 100%;
         outline: none;
         border: none;
         border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        background-color: rgba(0, 0, 0, 0);
     }
 
     .input_type_text,
@@ -24,7 +25,7 @@ $theme_colo_1:rgb(250 62 66);
     .input_type_text_exit,
     .input_type_text_done {
         position: absolute;
-        z-index: 1;
+        z-index: 0;
         bottom: 6px;
         left: 0;
         animation-duration: 200ms;
