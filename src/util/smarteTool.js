@@ -1,4 +1,4 @@
-// import _L from 'lodash'
+// const _L = require('lodash')
 
 const smarteTool = {}
 
@@ -153,4 +153,4 @@ const getUrlParams = (url) => {
 smarteTool.getUrlParams = getUrlParams
 
 
-export default smarteTool
+exports.smarteTool = smarteTool

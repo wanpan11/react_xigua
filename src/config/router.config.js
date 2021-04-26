@@ -24,7 +24,7 @@ const sidebarInfo = [
 
 /* 路由跳转 */
 const setUrl = {
-    defaultUrl: '/index',
+    index: '/index',
     listPage: '/index/itemInfo'
 }
 

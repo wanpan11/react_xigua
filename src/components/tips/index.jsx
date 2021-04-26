@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import './Tips_1.scss'
+import './index.scss'
 
-export default class TipsBox extends Component {
+export default class Tips extends Component {
     render() {
         const { msg } = this.props
         return (

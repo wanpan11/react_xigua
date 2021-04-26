@@ -4,8 +4,7 @@ import './index.scss'
 import axios from 'axios'
 // import PubSub from 'pubsub-js'
 import { Loading } from '../../../../components'
-import smartaTool from '../../../../util/smarteTool.js'
-
+import { smarteTool } from '../../../../util/smarteTool.js'
 
 export default class ListPage extends Component {
 
@@ -49,8 +48,8 @@ export default class ListPage extends Component {
     getListPageData = () => {
 
         axios.get('/mock/listPageInfo').then(res => {
-            const data = smartaTool.getDeepVal(res, 'data.dataSource')
-            // const code = smartaTool.getDeepVal(res, 'data.code')
+            const data = smarteTool.getDeepVal(res, 'data.dataSource')
+            // const code = smarteTool.getDeepVal(res, 'data.code')
             // setTimeout(() => {
             this.setState({ data: data })
             // }, 200);
@@ -67,7 +66,7 @@ export default class ListPage extends Component {
             let params = {}
             params.key = key
             params.title = title
-            const openPath = smartaTool.setUrlParams(path, params)
+            const openPath = smarteTool.setUrlParams(path, params)
             history.push(openPath)
         }
     }

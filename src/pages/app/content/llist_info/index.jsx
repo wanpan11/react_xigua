@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store from '../../../../redux/store'
 import PubSub from 'pubsub-js'
-import smartaTool from '../../../../util/smarteTool.js'
+import { smarteTool } from '../../../../util/smarteTool.js'
 // import styles from './index.module.scss'
 import { Mycard } from '../../../../components'
 
@@ -14,7 +14,7 @@ export default class ItemInfo extends Component {
 
     render() {
         const { history: { location } } = this.props
-        const params = smartaTool.getUrlParams(location.search)
+        const params = smarteTool.getUrlParams(location.search)
         return (
             <div>
                 <Mycard title={params.title} >
