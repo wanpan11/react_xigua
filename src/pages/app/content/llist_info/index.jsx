@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import store from '../../../../redux/store'
 import PubSub from 'pubsub-js'
 import smartaTool from '../../../../util/smarteTool.js'
-import styles from './index.module.scss'
+// import styles from './index.module.scss'
 import { Mycard } from '../../../../components'
 
 export default class ItemInfo extends Component {

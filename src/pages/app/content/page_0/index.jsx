@@ -11,7 +11,6 @@ export default class ListPage extends Component {
 
     state = {
         data: [],
-        done: false
     }
 
     componentDidMount() {
@@ -19,18 +18,18 @@ export default class ListPage extends Component {
     }
 
     render() {
-        const { data, done } = this.state
+        const { data } = this.state
         return (
             <div className="card_box">
                 {
-                    done
+                    data.length > 0
                         ?
                         <div className="card_item_box">
                             {
                                 data.map(ele => {
                                     return (
                                         <div className="card_item" key={ele.key} onClick={this.setUrl(ele.key, ele.title)} >
-                                            <img src="" alt="" />
+                                            <img src={ele.url} alt="" />
                                             <div>
                                                 <h1>{ele.title}</h1>
                                                 <span>{ele.content}</span>
@@ -48,20 +47,17 @@ export default class ListPage extends Component {
     }
 
     getListPageData = () => {
-        const { done } = this.state
-        if (done) {
-            return
-        } else {
-            axios.get('/mock/listPageInfo').then(res => {
-                const data = smartaTool.getDeepVal(res, 'data.dataSource')
-                // const code = smartaTool.getDeepVal(res, 'data.code')
-                setTimeout(() => {
-                    this.setState({ data: data, done: true })
-                }, 200);
-            }).catch(err => {
-                console.log(err);
-            })
-        }
+
+        axios.get('/mock/listPageInfo').then(res => {
+            const data = smartaTool.getDeepVal(res, 'data.dataSource')
+            // const code = smartaTool.getDeepVal(res, 'data.code')
+            // setTimeout(() => {
+            this.setState({ data: data })
+            // }, 200);
+        }).catch(err => {
+            console.log(err);
+        })
+
     }
 
     setUrl = (key, title) => {
