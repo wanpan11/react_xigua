@@ -37,9 +37,9 @@ export default class Login extends Component {
                             null
                     }
 
-                    <div className={styles.panda_box}>
+                    {/* <div className={styles.panda_box}>
                         <img src="./img/login_00.png" alt="" />
-                    </div>
+                    </div> */}
 
                     <div className={styles.login_box}>
                         <div className={styles.logo_box}>

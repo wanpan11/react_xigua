@@ -1,7 +1,8 @@
 .login_page {
     width: 100%;
     height: 100%;
-    background: url(../../static/img/login_bg.jpg) no-repeat;
+    // background: url(../../static/img/login_bg.jpg) no-repeat;
+    background-image: linear-gradient(#6d64e6, #91cce5);
     background-size: 100%;
     display: flex;
     justify-content: center;
@@ -19,10 +20,10 @@
 
     .login_box {
         min-width: 460px;
-        margin-top: 50%;
+        margin-top: 40%;
         padding: 40px;
         background: #fff;
-        border-radius: 4px;
+        border-radius: 12px;
 
         .logo_box {
             display: flex;
@@ -37,5 +38,3 @@
 
     }
 }
-
-
