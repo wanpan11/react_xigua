@@ -58,7 +58,7 @@ class Sidebar extends React.Component {
                     <div className="sidebar_box_normal">
 
                         <div className="sidebar_logo">
-                            <Link to="/index/page0">
+                            <Link to={setUrl.index}>
                                 <div className="logo"></div>
                             </Link>
                         </div>
