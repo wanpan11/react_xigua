@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { setUrl } from '../../../../config/router.config'
 import './index.scss'
 import axios from 'axios'
+import '../../../../request/api'
 // import PubSub from 'pubsub-js'
 import { Loading } from '../../../../components'
 import { smarteTool } from '../../../../util/smarteTool.js'
@@ -47,7 +48,7 @@ export default class ListPage extends Component {
 
     getListPageData = () => {
 
-        axios.get('/mock/listPageInfo').then(res => {
+        axios.get('http://20181024Mock.com/listPageInfo').then(res => {
             const data = smarteTool.getDeepVal(res, 'data.dataSource')
             // const code = smarteTool.getDeepVal(res, 'data.code')
             // setTimeout(() => {
@@ -56,6 +57,16 @@ export default class ListPage extends Component {
         }).catch(err => {
             console.log(err);
         })
+
+        /* axios.get('/mock/listPageInfo').then(res => {
+            const data = smarteTool.getDeepVal(res, 'data.dataSource')
+            // const code = smarteTool.getDeepVal(res, 'data.code')
+            // setTimeout(() => {
+            this.setState({ data: data })
+            // }, 200);
+        }).catch(err => {
+            console.log(err);
+        }) */
 
     }
 

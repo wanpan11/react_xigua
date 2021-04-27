@@ -4,7 +4,7 @@ import styles from './index.module.scss'
 import { MyinputAnimeta, Mybutton } from '../../components'
 import { smarteTool } from '../../util/smarteTool.js'
 import axios from 'axios'
-
+import '../../request/api'
 
 export default class Login extends Component {
 
@@ -47,15 +47,26 @@ export default class Login extends Component {
         let params = {}
         params.userAcount = userAcount
         params.userPassword = userPassword
-        axios.get('/mock/loginAuth', { params }).then(res => {
+
+        /* axios.get('/mock/loginAuth', { params }).then(res => {
             debugger
             const { code } = res.data
             if (code === 114) {
                 history.replace(setUrl.index)
             } else {
-                alert('帐号/密码有误！')
+                alert('帐号/密码有误！')params
+            }
+        }) */
+
+        axios.post('http://20181024Mock.com/loginAuth', params).then(res => {
+            const { code } = res.data
+            if (code === 114) {
+                history.replace(setUrl.index)
+            } else {
+
             }
         })
+
     }
 
     onchange = (type) => {
