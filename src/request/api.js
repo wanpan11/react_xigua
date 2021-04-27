@@ -32,12 +32,11 @@ module.exports = [
         }]
     }),
     Mock.mock(url.loginAuth, (req => {
-        debugger
         const { userAcount, userPassword } = JSON.parse(req.body)
         if (userAcount === '123' && userPassword === '123') {
             return { code: 114 }
         } else {
-            return { code: 110, msg: '密码或账号错误' }
+            return { code: 110, msg: '┭┮﹏┭┮ 密码或账号错误!' }
         }
     })),
 ]

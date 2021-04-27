@@ -1,0 +1,60 @@
+.tips,
+.tips_active,
+.tips_exit {
+    background: #ffffff;
+    top: -5%;
+    position: fixed;
+    left: calc(50% - 100px);
+    border-radius: 4px;
+    padding: 12px 40px;
+    box-shadow: 0 0 19px rgb(0 0 0 / 20%);
+
+    font: {
+        size: 16px;
+        weight: bold
+    }
+
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+
+    h3 {
+        text-align: center;
+        font-size: 16px;
+        margin: 0;
+    }
+
+
+}
+
+.tips_active {
+    animation-name: tips_active;
+}
+
+.tips_exit {
+    animation-name: tips_exit;
+}
+
+
+@keyframes tips_active {
+    from {
+        top: -5%;
+        opacity: 0;
+    }
+
+    to {
+        top: 5%;
+        opacity: 1;
+    }
+}
+
+@keyframes tips_exit {
+    from {
+        opacity: 1;
+        top: 5%;
+    }
+
+    to {
+        opacity: 0;
+        top: -5%;
+    }
+}
