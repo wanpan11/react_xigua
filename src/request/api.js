@@ -8,7 +8,7 @@ const url = {
 module.exports = [
     Mock.mock(url.listPageInfo, {
         'code': 114,
-        'dataSource|7': [{
+        'dataSource|20': [{
             'key|+1': 1,
             'title|1': [
                 '腾讯视频 1.9.1',
@@ -34,7 +34,7 @@ module.exports = [
     Mock.mock(url.loginAuth, (req => {
         const { userAcount, userPassword } = JSON.parse(req.body)
         if (userAcount === '123' && userPassword === '123') {
-            return { code: 114 }
+            return { code: 114, token: '6087a4a1b5bf96c4be49d4fa' }
         } else {
             return { code: 110, msg: '┭┮﹏┭┮ 密码或账号错误!' }
         }

@@ -8,6 +8,16 @@ import '../../request/api'
 
 export default class Login extends Component {
 
+
+    constructor(props) {
+        super(props)
+        const token = sessionStorage.getItem("token");
+        if (token) {
+            const { history } = this.props
+            history.replace(setUrl.index)
+        }
+    }
+
     state = {
         userAcount: '',
         userPassword: '',
@@ -77,6 +87,11 @@ export default class Login extends Component {
         axios.post('http://20181024Mock.com/loginAuth', params).then(res => {
             const { code } = res.data
             if (code === 114) {
+                const { token } = res.data
+                const today = new Date()
+                const effectiveTime = smarteTool.setDateToZero(new Date(today.setDate(today.getDate() + 2)))
+                sessionStorage.setItem('token', token)
+                sessionStorage.setItem('effectiveTime', effectiveTime)
                 history.replace(setUrl.index)
             } else {
                 const { msg } = res.data

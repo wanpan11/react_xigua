@@ -153,4 +153,12 @@ const getUrlParams = (url) => {
 smarteTool.getUrlParams = getUrlParams
 
 
+const setDateToZero = (date) => {
+    date.setHours(0)
+    date.setMinutes(0)
+    date.setSeconds(0)
+    return date
+}
+smarteTool.setDateToZero = setDateToZero
+
 exports.smarteTool = smarteTool

@@ -8,8 +8,8 @@ import { App, Login } from '../pages'
 const Pages = () => {
     return (
         <Switch>
-            <Route path="/" exact component={Login} />
             <Route path="/index" component={App} />
+            <Route path="/" component={Login} />
         </Switch>
     )
 }
@@ -24,6 +24,7 @@ const sidebarInfo = [
 
 /* 路由跳转 */
 const setUrl = {
+    login: '/',
     index: '/index',
     listPage: '/index/itemInfo'
 }
