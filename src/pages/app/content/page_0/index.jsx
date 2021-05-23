@@ -51,9 +51,9 @@ export default class ListPage extends Component {
         axios.get('http://20181024Mock.com/listPageInfo').then(res => {
             const data = smarteTool.getDeepVal(res, 'data.dataSource')
             // const code = smarteTool.getDeepVal(res, 'data.code')
-            // setTimeout(() => {
+            setTimeout(() => {
             this.setState({ data: data })
-            // }, 200);
+            }, 200);
         }).catch(err => {
             console.log(err);
         })
