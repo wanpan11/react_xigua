@@ -8,7 +8,6 @@ import '../../request/api'
 
 export default class Login extends Component {
 
-
     constructor(props) {
         super(props)
         const token = sessionStorage.getItem("token");

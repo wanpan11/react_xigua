@@ -1,9 +1,16 @@
 const Mock = require('mockjs')
 
+/* 动态数据 模拟请求 */
 const url = {
     listPageInfo: 'http://20181024Mock.com/listPageInfo',
     loginAuth: 'http://20181024Mock.com/loginAuth'
 }
+
+const userInfo = {
+    userName: '123',
+    password: '123'
+}
+
 
 module.exports = [
     Mock.mock(url.listPageInfo, {
@@ -33,7 +40,7 @@ module.exports = [
     }),
     Mock.mock(url.loginAuth, (req => {
         const { userAcount, userPassword } = JSON.parse(req.body)
-        if (userAcount === '123' && userPassword === '123') {
+        if (userAcount === userInfo.userName && userPassword === userInfo.password) {
             return { code: 114, token: '6087a4a1b5bf96c4be49d4fa' }
         } else {
             return { code: 110, msg: '┭┮﹏┭┮ 密码或账号错误!' }
