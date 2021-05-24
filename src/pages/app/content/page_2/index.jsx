@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Upload, Modal } from 'antd';
+import { Upload } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 
 
@@ -17,13 +17,12 @@ export default class page_2 extends Component {
 
     state = {
         fileList: [
-           
+
         ],
     };
 
 
     handlePreview = async file => {
-        debugger
         if (!file.url && !file.preview) {
             file.preview = await getBase64(file.originFileObj);
         }
@@ -36,7 +35,6 @@ export default class page_2 extends Component {
     };
 
     handleChange = ({ fileList }) => {
-        debugger
         this.setState({ fileList })
     };
 
