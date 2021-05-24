@@ -47,12 +47,11 @@ export default class ListPage extends Component {
     }
 
     getListPageData = () => {
-
-        axios.get('http://20181024Mock.com/listPageInfo').then(res => {
+        axios.get('/listPageInfo').then(res => {
             const data = smarteTool.getDeepVal(res, 'data.dataSource')
             // const code = smarteTool.getDeepVal(res, 'data.code')
             setTimeout(() => {
-            this.setState({ data: data })
+                this.setState({ data: data })
             }, 200);
         }).catch(err => {
             console.log(err);

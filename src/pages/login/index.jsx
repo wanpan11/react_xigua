@@ -83,7 +83,7 @@ export default class Login extends Component {
         }) */
         //#endregion
 
-        axios.post('http://20181024Mock.com/loginAuth', params).then(res => {
+        axios.post('/loginAuth', params).then(res => {
             const { code } = res.data
             if (code === 114) {
                 const { token } = res.data

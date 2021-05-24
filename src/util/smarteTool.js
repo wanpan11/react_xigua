@@ -103,8 +103,8 @@ smarteTool.setDeepVal = setDeepVal
 
 /**
  * 拼接get请求参数
- * @param {string} path 
- * @param {object} params 
+ * @param {string} path - url
+ * @param {object} params - 参数
  * @returns {string}
  */
 const setUrlParams = (path, params) => {

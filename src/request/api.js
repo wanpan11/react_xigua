@@ -2,8 +2,8 @@ const Mock = require('mockjs')
 
 /* 动态数据 模拟请求 */
 const url = {
-    listPageInfo: 'http://20181024Mock.com/listPageInfo',
-    loginAuth: 'http://20181024Mock.com/loginAuth'
+    listPageInfo: '/listPageInfo',
+    loginAuth: '/loginAuth'
 }
 
 const userInfo = {
