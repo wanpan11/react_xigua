@@ -1,5 +1,6 @@
 const express = require('express');   //引入express
 const Mock = require('mockjs');       //引入mock
+
 const { smarteTool } = require('./src/util/smarteTool')
 const data = require('./mock/data/index')
 const app = express();        //实例化express

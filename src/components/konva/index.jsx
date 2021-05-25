@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 import { Stage, Layer, Rect } from 'react-konva'
 // import Konva from 'konva';
-import './konva.scss'
+import './index.scss'
 
-class ColoredRect extends React.Component {
+class GraphContent extends React.Component {
     state = {
         color: 'rgba(0,0,0,0.6)',
         border: 'red',
@@ -26,23 +26,25 @@ class ColoredRect extends React.Component {
                 // cornerRadius={50}
                 // dash={[20, 10]}
                 />
-                {markInfoArr.map((ele, index) => {
-                    const { startX, startY, markWidth, markHeight } = ele
-                    return (
-                        <Rect
-                            x={startX}
-                            y={startY}
-                            width={markWidth}
-                            height={markHeight}
-                            fill={color}
-                            stroke={border}
-                            strokeWidth={2}
-                            key={`Rect_${index}`}
-                        // cornerRadius={50}
-                        // dash={[20, 10]}
-                        />
-                    )
-                })}
+                {
+                    markInfoArr.map((ele, index) => {
+                        const { startX, startY, markWidth, markHeight } = ele
+                        return (
+                            <Rect
+                                x={startX}
+                                y={startY}
+                                width={markWidth}
+                                height={markHeight}
+                                fill={color}
+                                stroke={border}
+                                strokeWidth={2}
+                                key={`Rect_${index}`}
+                            // cornerRadius={50}
+                            // dash={[20, 10]}
+                            />
+                        )
+                    })
+                }
             </Fragment>
         )
     }
@@ -60,12 +62,12 @@ class Konva extends Component {
     }
 
     render() {
-        const { width, height } = this.props
+        const { style, height, width } = this.props
         return (
             <Stage
-                className="canvs_box"
-                width={width}
+                style={style}
                 height={height}
+                width={width}
                 onMouseDown={this.mouseEvent}
                 onMouseUp={this.mouseEvent}
                 ref={(ele) => {
@@ -73,7 +75,7 @@ class Konva extends Component {
                 }}
             >
                 <Layer>
-                    <ColoredRect state={this.state} />
+                    <GraphContent state={this.state} />
                 </Layer>
             </Stage>
         )
@@ -87,33 +89,28 @@ class Konva extends Component {
             markHeight,
             markInfoArr,
         } = this.state
-        const { getPositionInfo } = this.props
         const { canvs_ele } = this
-        const {
-            type,
-            evt: { offsetX, offsetY },
-        } = evt
-        let RTN = {}
+        const { type, evt: { offsetX, offsetY }, } = evt
+        let stateChange = {}
         if (type === 'mousedown') {
             canvs_ele.addEventListener('mousemove', this.canvasMarkHandler)
-            RTN.startX = offsetX
-            RTN.startY = offsetY
-            this.setState(RTN)
+            stateChange.startX = offsetX
+            stateChange.startY = offsetY
+            this.setState(stateChange)
         } else if (type === 'mouseup') {
             canvs_ele.removeEventListener('mousemove', this.canvasMarkHandler)
 
             let currentMarkInfoArr = markInfoArr.concat()
             currentMarkInfoArr.push({ startX, startY, markWidth, markHeight })
 
-            RTN.markInfoArr = currentMarkInfoArr
-            RTN.endX = offsetX
-            RTN.endY = offsetY
-            RTN.startX = 0
-            RTN.startY = 0
-            RTN.markWidth = 0
-            RTN.markHeight = 0
-            this.setState(RTN)
-            getPositionInfo(this.state)
+            stateChange.markInfoArr = currentMarkInfoArr
+            stateChange.endX = offsetX
+            stateChange.endY = offsetY
+            stateChange.startX = 0
+            stateChange.startY = 0
+            stateChange.markWidth = 0
+            stateChange.markHeight = 0
+            this.setState(stateChange)
         }
     }
 
@@ -122,10 +119,10 @@ class Konva extends Component {
         const { offsetX, offsetY } = evt
         const width = offsetX - startX
         const height = offsetY - startY
-        let RTN = {}
-        RTN.markWidth = width
-        RTN.markHeight = height
-        this.setState(RTN)
+        let state = {}
+        state.markWidth = width
+        state.markHeight = height
+        this.setState(state)
     }
 }
 
