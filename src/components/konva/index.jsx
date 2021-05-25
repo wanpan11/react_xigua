@@ -5,14 +5,14 @@ import './index.scss'
 
 class GraphContent extends React.Component {
     state = {
-        color: 'rgba(0,0,0,0.6)',
+        color: '#fff',
         border: 'red',
     }
 
     render() {
         const { state } = this.props
         const { markInfoArr } = state
-        const { color, border } = this.state
+        const { color, /* border */ } = this.state
         return (
             <Fragment>
                 <Rect
@@ -21,8 +21,8 @@ class GraphContent extends React.Component {
                     width={state.markWidth}
                     height={state.markHeight}
                     fill={color}
-                    stroke={border}
-                    strokeWidth={2}
+                    // stroke={border}
+                    // strokeWidth={2}
                 // cornerRadius={50}
                 // dash={[20, 10]}
                 />
@@ -36,8 +36,8 @@ class GraphContent extends React.Component {
                                 width={markWidth}
                                 height={markHeight}
                                 fill={color}
-                                stroke={border}
-                                strokeWidth={2}
+                                // stroke={border}
+                                // strokeWidth={2}
                                 key={`Rect_${index}`}
                             // cornerRadius={50}
                             // dash={[20, 10]}
