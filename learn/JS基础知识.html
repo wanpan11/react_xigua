@@ -9,6 +9,10 @@
 
 <body>
 
+    <div>
+        <button>111</button>
+    </div>
+
     <script type="text/javascript">
         // 1.创建一个类
         class Wanpan {
@@ -101,6 +105,38 @@
 
         console.log(Person.prototype.constructor);
         console.log(Person);
+    </script>
+
+    <!-- 事件冒泡 -->
+    <script>
+        const btn = document.getElementsByTagName('button')[0]
+        const div = document.getElementsByTagName('div')[0]
+        btn.addEventListener('click', (e) => {
+            console.log(e.target);
+            e.stopImmediatePropagation()
+            e.stopPropagation()
+        })
+        div.addEventListener('click', (e) => {
+            console.log(e.target);
+        })
+        div.addEventListener('mouseup', (e) => {
+            console.log(e.target);
+        })
+
+    </script>
+
+    <button onmouseUp="btnClickHandler(event)">CLICK ME</button>
+
+    <script>
+
+        document.addEventListener("mouseup", function (event) {
+            console.log("document clicked");
+        }, false);
+
+        function btnClickHandler(event) {
+            // event.stopPropagation(); 
+            console.log("btn clicked");
+        }
     </script>
 
 </body>
