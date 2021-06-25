@@ -1,22 +1,37 @@
-//引入依赖
 import React from 'react'
 import ReactDOM from 'react-dom'
 import store from './redux/store'
+import { Provider, connect } from 'react-redux'
 
-//引入初始化样式
-import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
-import './static/style/init.scss'
+import Entry from './entry'
 
-//引入组件
-import App3 from './App3'
-
-//将组件渲染到页面1
-ReactDOM.render(<App3 />, document.getElementById('root'))
+// Action
+const increaseAction = { type: 'increase' }
 
 
-/* 监听store变化 */
-store.subscribe(() => {
-    console.log(store.getState());
-    ReactDOM.render(<App3 />, document.getElementById('root'))
+// Map Redux state to component props
+function mapStateToProps(state) {
+    return {
+        value: state.count
+    }
+}
 
-})
+// Map Redux actions to component props
+function mapDispatchToProps(dispatch) {
+    return {
+        onIncreaseClick: () => dispatch(increaseAction)
+    }
+}
+
+// Connected Component
+const App = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(Entry)
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
+)
