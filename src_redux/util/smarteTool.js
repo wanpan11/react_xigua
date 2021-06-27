@@ -3,7 +3,7 @@
 const smarteTool = {}
 
 /**
- * 
+ * 类型判断
  * @param {any} o 
  * @returns {type}
  */
@@ -34,7 +34,7 @@ const getValByIterativeKey = (data, keyArr, result) => {
     }
 }
 /**
- * 
+ * 获取对象指定值
  * @param {'object,Array'} data 
  * @param {'key.key.0'} keyArr 
  * @returns {any}
@@ -47,7 +47,7 @@ const getDeepVal = (data, keyArr) => {
 smarteTool.getDeepVal = getDeepVal
 
 /**
- * 
+ * 设置对象指定值
  * @param {'object,Array'} data 
  * @param {'key.key.0'} keyArr 
  * @param {any} newValue 
@@ -152,7 +152,11 @@ const getUrlParams = (url) => {
 }
 smarteTool.getUrlParams = getUrlParams
 
-
+/**
+ * 将时间对象置零
+ * @param {*} date 
+ * @returns 
+ */
 const setDateToZero = (date) => {
     date.setHours(0)
     date.setMinutes(0)
@@ -160,5 +164,43 @@ const setDateToZero = (date) => {
     return date
 }
 smarteTool.setDateToZero = setDateToZero
+
+/**
+ * 深克隆
+ * @param {any} obj 
+ * @returns 
+ */
+const deepClone = (obj) => {
+    let newObj = {}
+    function clone(obj, newObj) {
+        for (let i in obj) {
+            const type = typeof obj[i]
+
+            if (type === 'object') {
+
+                if (obj[i] instanceof Array) {
+                    newObj[i] = [...obj[i]]
+                }
+
+                if (obj[i] instanceof Object && !(obj[i] instanceof Array)) {
+                    newObj[i] = {}
+                    clone(obj[i], newObj[i])
+                }
+
+            }
+
+            if (type === 'function') {
+                newObj[i] = obj[i]
+            }
+
+            if (type === 'string' || type === 'number') {
+                newObj[i] = obj[i]
+            }
+        }
+    }
+    clone(obj, newObj)
+    return newObj
+}
+smarteTool.deepClone = deepClone
 
 exports.smarteTool = smarteTool

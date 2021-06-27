@@ -3,11 +3,11 @@ import { connect } from 'react-redux'
 import { increase_action } from './redux/action'
 
 function Test(props) {
-    debugger
+
     return (
         <div>
-            {console.log(props)}
-            heoll world!
+            heoll {props.name}!
+            <button onClick={props.setNameFun.bind(null, 123)}>点我修改姓名</button>
         </div>
     )
 }

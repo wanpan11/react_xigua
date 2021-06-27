@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Test from './test'
 
 function Entry(props) {
-    debugger
+
+    const [name, setName] = useState('wanpan');
+
+    useEffect(() => {
+        debugger
+        console.log(name);
+    })
+
+    const setNameFun = (name) => {
+        debugger
+        setName(name)
+    }
+
     return (
         <div>
-            <Test></Test>
+            <Test
+                name={name}
+                setNameFun={setNameFun}
+            ></Test>
         </div>
     )
 }
