@@ -17,7 +17,7 @@ function Test(props) {
     return (
         <div>
             <div>test_2_count：{test_2_count}</div>
-            <button onClick={test_1_change}>点我2</button>
+            <button onClick={test_1_change}>同步操作</button>
         </div>
     )
 

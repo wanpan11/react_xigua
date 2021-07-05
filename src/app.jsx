@@ -27,7 +27,7 @@ function App(props) {
     return (
         <div>
             <div>test_1_count：{test_1_count}</div>
-            <button onClick={test_1_change}>点我1</button>
+            <button onClick={test_1_change}>异步操作</button>
             <Test
                 name={name}
                 setNameFun={setNameFun}

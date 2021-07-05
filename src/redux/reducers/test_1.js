@@ -7,8 +7,13 @@ const initState = {
     count: 0
 };
 
-
-// Reducer
+ 
+/**
+ * reducers
+ * @param {Object} state 更新之前的数据
+ * @param {Object} action type,data 
+ * @returns 
+ */
 function test_1(state = initState, action) {
     debugger
     const { data, type } = action
