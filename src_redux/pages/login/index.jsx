@@ -73,7 +73,6 @@ export default class Login extends Component {
 
         //#region 
         /* axios.get('/mock/loginAuth', { params }).then(res => {
-            debugger
             const { code } = res.data
             if (code === 114) {
                 history.replace(setUrl.index)
