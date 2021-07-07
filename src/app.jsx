@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import { test_1_action } from './redux/action/action'
 import Test from './pages/test'
+import Demo from './pages/formDemo'
 
 
 function App(props) {
@@ -32,6 +33,7 @@ function App(props) {
                 name={name}
                 setNameFun={setNameFun}
             />
+            <Demo></Demo>
         </div>
     )
 
