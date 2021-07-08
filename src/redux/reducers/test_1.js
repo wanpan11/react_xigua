@@ -15,7 +15,7 @@ const initState = {
  * @returns 
  */
 function test_1(state = initState, action) {
-    debugger
+    // debugger
     const { data, type } = action
     switch (type) {
         case TEST_1:
