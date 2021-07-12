@@ -12,4 +12,9 @@ yarn start
 //模拟数据 mock运行 新开终端运行
 //yarn mock
 
+
+//分支
+master: 项目部署分支
+test: react全家桶demo
+
 ```
