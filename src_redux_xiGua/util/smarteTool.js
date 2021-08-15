@@ -203,4 +203,4 @@ const deepClone = (obj) => {
 }
 smarteTool.deepClone = deepClone
 
-exports.smarteTool = smarteTool
+export default smarteTool

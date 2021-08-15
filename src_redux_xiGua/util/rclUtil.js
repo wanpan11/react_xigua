@@ -464,7 +464,7 @@ const parseJsonWithNumber2String = (str) => {
     } catch (e) {
         try {
             obj = JSON.parse(str)
-        } catch (e1) {}
+        } catch (e1) { }
     }
     return obj
 }
@@ -725,7 +725,7 @@ const divide2str = function (s1, s2, options = {}) {
     }
 }
 
-export default {
+export {
     stringComparator,
     copyTreeStructure,
     deepClone,
