@@ -160,17 +160,22 @@
             return params
         }
 
-        async function test() {
-            let num = null
-            await test_1(0).then(feed => {
-                console.log('#1', feed);
-            }).then(() => {
-                num = 1
-            })
+        /*  async function test() {
+             let num = null
+             await test_1(0).then(feed => {
+                 console.log('#1', feed);
+             }).then(() => {
+                 num = 1
+             })
+             console.log('#2', num);
+         } */
+
+        async function test(params) {
+            const num = await test_1(params)
             console.log('#2', num);
         }
 
-        // test()
+        test(1)
 
         /* 
             Generator 函数
