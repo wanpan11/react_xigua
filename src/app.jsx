@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux';
 import { test_1_action } from './redux/action/action'
-import Test from './pages/test'
-import Demo from './pages/formDemo'
+// import Test from './pages/test'
+// import Demo from './pages/formDemo'
+import Image from "./pages/image";
 
 
 function App(props) {
@@ -27,13 +28,14 @@ function App(props) {
 
     return (
         <div>
-            <div>test_1_count：{test_1_count}</div>
+            {/* <div>test_1_count：{test_1_count}</div>
             <button onClick={test_1_change}>异步操作</button>
             <Test
                 name={name}
                 setNameFun={setNameFun}
             />
-            <Demo></Demo>
+            <Demo></Demo> */}
+            <Image/>
         </div>
     )
 
