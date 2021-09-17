@@ -1,38 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { test_1_action } from './redux/action/action';
-import Form from './pages/formDemo';
-import Image from './pages/dragImage';
+// import Form from './pages/formDemo';
+import DragImage from './pages/dragImage';
 import SetState from './pages/setState';
 
 function App(props) {
-  console.log(props);
-
-  const [name, setName] = useState('wanpan');
+  //
+  const { dispatch, test_1, test_2 } = props;
 
   useEffect(() => {
-    // console.log(name);
-  });
-
-  const setNameFun = (name) => {
-    setName(name);
-  };
-
-  const { dispatch, test_1_count } = props;
-
-  const test_1_change = () => {
-    /* 使用中间件 */
-    dispatch(test_1_action(test_1_count + 1));
-
-    /* 不使用中间件 */
-    // test_1_action(dispatch, test_1_count + 1)
-  };
+    test_1_action(dispatch, 200);
+  }, [dispatch]);
 
   return (
-    <div>
-      <Form />
+    <div style={{ padding: '20px 32px' }}>
+      <h1>react-redux</h1>
+      <div>store: {test_1.count}</div>
+      <div>store: {test_2.name}</div>
       <hr />
-      <Image />
+      {/* <Form /> */}
+      <hr />
+      <DragImage />
       <hr />
       <SetState />
     </div>
@@ -41,7 +30,7 @@ function App(props) {
 
 export default connect(
   (state) => {
-    return { test_1_count: state.test_1.count };
+    return { ...state };
   },
   (dispatch) => {
     return { dispatch };

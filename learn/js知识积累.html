@@ -135,22 +135,16 @@
 
     <!-- Object -->
     <!-- <script>
+      const o0 = new Object('宛攀');
+      const o1 = new Object(111);
+      console.log(o0, o1);
 
-        const o0 = new Object('宛攀')
-        const o1 = new Object(111)
-
-
-        console.log(o0, o1);
-
-        const o2 = Object.prototype.toString.call(' 啥决斗链接')
-
-        console.log(o2);
-
-
+      const o2 = Object.prototype.toString.call('string');
+      console.log(o2);
     </script> -->
 
     <!-- async await -->
-    <script>
+    <!--  <script>
       /* 直接返回形式 */
       //   async function test_1(params) {
       //     return params;
@@ -230,6 +224,21 @@
       //   console.log(it.next()); // { value: "人月", done: false }
       //   console.log(it.next()); // { value: "神话", done: false }
       //   console.log(it.next()); // {value: undefined, done: true }
+    </script> -->
+
+    <!-- promise 原理 -->
+    <script>
+      const wanpan = new Promise((rev) => {
+        setTimeout(() => {
+          rev(1);
+        }, 1000);
+      });
+
+      wanpan.then((res) => console.log(res));
+
+      // setInterval(() => {
+      //   console.log(wanpan);
+      // }, 50);
     </script>
   </body>
 </html>

@@ -31,15 +31,15 @@ const ImageDiv = styled.div`
 `;
 
 const codeData = {
-  width: 128,
-  height: 128,
+  width: 88,
+  height: 88,
 };
 
 const imgUrl =
-  'https://img01.yzcdn.cn/upload_files/2021/09/02/FrexC1yD0qk277KVd-EvdDYWKYgY.png';
+  'https://img01.yzcdn.cn/upload_files/2021/09/07/Fs2C1KiP4caA0jSRyVYlfCArmWr8.png';
 
 /* 图片拽拽定位 */
-const Image = () => {
+const DragImage = () => {
   //
   const codeEle = useRef(null);
   const box = useRef(null);
@@ -176,4 +176,5 @@ const Image = () => {
     </ImageDiv>
   );
 };
-export default memo(Image);
+
+export default memo(DragImage);

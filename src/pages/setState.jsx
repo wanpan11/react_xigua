@@ -13,7 +13,7 @@ export default class index extends Component {
       prestate.name = 'cao';
       prestate.count += 1;
       //   return { ...prestate };
-      console.log('#1 ', prestate);
+      // console.log('#1 ', prestate);
       return prestate;
     });
     console.log('#1 name count', this.state.name, this.state.count);
@@ -22,10 +22,10 @@ export default class index extends Component {
       prestate.age = 18;
       prestate.count += 1;
       //   return { ...prestate };
-      console.log('#2 ', prestate);
+      // console.log('#2 ', prestate);
       return prestate;
     });
-    console.log('#2 age count', this.state.age, this.state.count);
+    // console.log('#2 age count', this.state.age, this.state.count);
 
     /* setState 同步状态 */
     // setTimeout(() => {
