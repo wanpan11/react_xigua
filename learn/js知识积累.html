@@ -7,25 +7,31 @@
   </head>
 
   <style>
+    body,
+    html {
+      margin: 0;
+      height: 100%;
+    }
     .box {
-      transform: translate(10px, 20px);
+      /* transform: translate(10px, 20px); */
       background-color: red;
-      width: 20px;
-      height: 20px;
+      height: 100%;
+      /* width: 20px;
+      height: 20px; */
     }
   </style>
 
   <body>
-    <div>
+    <!-- <div>
       <button>111</button>
-    </div>
+    </div> -->
 
     <div class="box"></div>
 
-    <button onmouseUp="btnClickHandler(event)">CLICK ME</button>
+    <!-- <button onmouseUp="btnClickHandler(event)">CLICK ME</button> -->
 
-    <!-- 类基础 -->
-    <!--  <script type="text/javascript">
+    <!-- 类 原型链  -->
+    <!-- <script type="text/javascript">
       // 1.创建一个类
       class Wanp {
         // 构造器方法
@@ -46,17 +52,17 @@
         }
         static staticStr = '我是Wanp的静态属性！';
       }
-      console.log('#1-1 Wanp -', Wanp.prototype);
-      console.log('#1-2 Wanp.staticStr -', Wanp.staticStr);
-      console.log('#1-3 Wanp.staticFuc -', Wanp.staticFuc());
+      // console.log('#1-1 Wanp -', Wanp.prototype);
+      // console.log('#1-2 Wanp.staticStr -', Wanp.staticStr);
+      // console.log('#1-3 Wanp.staticFuc -', Wanp.staticFuc());
 
       const wanpan = new Wanp('宛攀', 25);
-      console.log('#2-1 wanpan -', wanpan);
-      console.log('#2-2 wanpan.say -', wanpan.say());
-      console.log('#2-3 wanpan.size -', wanpan.size);
+      // console.log('#2-1 wanpan -', wanpan);
+      // console.log('#2-2 wanpan.say -', wanpan.say());
+      // console.log('#2-3 wanpan.size -', wanpan.size);
 
       // 实例无法访问原型对象的静态方法
-      console.log('#3-4 wanpan.staticStr -', wanpan.staticStr);
+      // console.log('#3-4 wanpan.staticStr -', wanpan.staticStr);
       // console.log('#2-5 wanpan.staticFuc() -', wanpan.staticFuc());
 
       // 1.1类的继承
@@ -68,7 +74,7 @@
         }
       }
       const wanpan1 = new Wanpan1('宛攀', 25, '男');
-      console.log('#3-1 wanpan.staticFuc() -', wanpan1);
+      // console.log('#3-1 wanpan.staticFuc() -', wanpan1);
 
       /* =============================================================================== */
 
@@ -93,6 +99,9 @@
       //因为 new Tanxiufen() 时间返回的是init的实例 所有需要把init的prototype 修改为Tanxiufen的prototype 从而拥有say()方法
       Tanxiufen.prototype.init.prototype = Tanxiufen.prototype;
       const tanxiufen = new Tanxiufen('谈秀芬', 24);
+
+      console.log(Tanxiufen.prototype);
+      console.log(tanxiufen.__proto__);
     </script> -->
     <!-- <script>
         function Person() {
@@ -144,7 +153,7 @@
 
     </script> -->
 
-    <!-- Object -->
+    <!-- Object对象 -->
     <!-- <script>
       const o0 = new Object('宛攀');
       const o1 = new Object(111);
@@ -155,7 +164,7 @@
     </script> -->
 
     <!-- async await -->
-    <script>
+    <!-- <script>
       /* 直接返回形式 */
       async function test_1(params) {
         /* reject */
@@ -242,7 +251,7 @@
       //   console.log(it.next()); // { value: "人月", done: false }
       //   console.log(it.next()); // { value: "神话", done: false }
       //   console.log(it.next()); // {value: undefined, done: true }
-    </script>
+    </script> -->
 
     <!-- promise 原理 -->
     <!-- <script>
@@ -259,6 +268,7 @@
       // }, 50);
     </script> -->
 
+    <!-- JSON -->
     <!-- <script>
       // const obj = {
       //   wanpan: '11',
@@ -283,7 +293,8 @@
       console.log(getStateParams(decodeURIComponent(str)));
     </script> -->
 
-    <script>
+    <!-- this -->
+    <!-- <script>
       var wanpan = 'c';
       var obj = {
         wanpan: 'b',
@@ -293,6 +304,6 @@
       };
 
       console.log(obj.getNmae());
-    </script>
+    </script> -->
   </body>
 </html>
