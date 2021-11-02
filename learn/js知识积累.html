@@ -14,7 +14,7 @@
     }
     .box {
       /* transform: translate(10px, 20px); */
-      background-color: red;
+      background-color: rgb(86, 168, 255);
       height: 100%;
       /* width: 20px;
       height: 20px; */
@@ -29,9 +29,10 @@
     <div class="box"></div>
 
     <!-- <button onmouseUp="btnClickHandler(event)">CLICK ME</button> -->
+  </body>
 
-    <!-- 类 原型链  -->
-    <!-- <script type="text/javascript">
+  <!-- 类 原型链  -->
+  <!-- <script type="text/javascript">
       // 1.创建一个类
       class Wanp {
         // 构造器方法
@@ -103,7 +104,7 @@
       console.log(Tanxiufen.prototype);
       console.log(tanxiufen.__proto__);
     </script> -->
-    <!-- <script>
+  <!-- <script>
         function Person() {
             this.name;
         }
@@ -126,8 +127,8 @@
         console.log(Person);
     </script> -->
 
-    <!-- 事件冒泡 -->
-    <!-- <script>
+  <!-- 事件冒泡 -->
+  <!-- <script>
         const btn = document.getElementsByTagName('button')[0]
         const div = document.getElementsByTagName('div')[0]
         btn.addEventListener('click', (e) => {
@@ -153,8 +154,8 @@
 
     </script> -->
 
-    <!-- Object对象 -->
-    <!-- <script>
+  <!-- Object对象 -->
+  <!-- <script>
       const o0 = new Object('宛攀');
       const o1 = new Object(111);
       console.log(o0, o1);
@@ -163,8 +164,8 @@
       console.log(o2);
     </script> -->
 
-    <!-- async await -->
-    <!-- <script>
+  <!-- async await -->
+  <!-- <script>
       /* 直接返回形式 */
       async function test_1(params) {
         /* reject */
@@ -253,23 +254,39 @@
       //   console.log(it.next()); // {value: undefined, done: true }
     </script> -->
 
-    <!-- promise 原理 -->
-    <!-- <script>
-      const wanpan = new Promise((rev) => {
+  <!-- promise 原理 -->
+  <!-- <script>
+      const wanpan = new Promise((rev, rej) => {
         setTimeout(() => {
-          rev(1);
+          if (Math.random() * 10 > 5) {
+            rev(1);
+          } else {
+            rej(0);
+
+            // 需要相应的catch 才能捕捉reject
+            // Promise.reject(0).catch((err) => {
+            //   debugger;
+            //   console.log(err);
+            // });
+          }
         }, 1000);
       });
 
-      wanpan.then((res) => console.log(res));
+      wanpan
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
 
       // setInterval(() => {
       //   console.log(wanpan);
       // }, 50);
     </script> -->
 
-    <!-- JSON -->
-    <!-- <script>
+  <!-- JSON -->
+  <!-- <script>
       // const obj = {
       //   wanpan: '11',
       // };
@@ -293,8 +310,8 @@
       console.log(getStateParams(decodeURIComponent(str)));
     </script> -->
 
-    <!-- this -->
-    <!-- <script>
+  <!-- this -->
+  <!-- <script>
       var wanpan = 'c';
       var obj = {
         wanpan: 'b',
@@ -305,5 +322,18 @@
 
       console.log(obj.getNmae());
     </script> -->
-  </body>
+
+  <!-- 闭包问题 -->
+  <script>
+    let obj = { name: 'wanpan' };
+
+    function test() {
+      console.log(obj.name);
+    }
+
+    setTimeout(test, 3000);
+    obj.name = 111;
+  </script>
+
+  <!--  -->
 </html>
