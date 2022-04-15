@@ -5,7 +5,7 @@ import axios from 'axios'
 import '../../../../request/api'
 // import PubSub from 'pubsub-js'
 import { Loading } from '../../../../components'
-import { smarteTool } from '../../../../util/smarteTool.js'
+import smarteTool from '../../../../util/smarteTool.js'
 
 export default class ListPage extends Component {
 

@@ -1,38 +1,80 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { test_1_action } from './redux/action/action';
-// import Form from './pages/formDemo';
-import DragImage from './pages/dragImage';
-import SetState from './pages/setState';
+//引入依赖
+import React, { Component } from 'react';
+import PubSub from 'pubsub-js'
 
-function App(props) {
-  //
-  const { dispatch, test_1, test_2 } = props;
+//引入样式、工具包
 
-  useEffect(() => {
-    test_1_action(dispatch, 200);
-  }, [dispatch]);
 
-  return (
-    <div style={{ padding: '20px 32px' }}>
-      <h1>react-redux</h1>
-      <div>store: {test_1.count}</div>
-      <div>store: {test_2.name}</div>
-      <hr />
-      {/* <Form /> */}
-      <hr />
-      <DragImage />
-      <hr />
-      <SetState />
-    </div>
-  );
+
+//引入组件
+import NavBar from './components/navbar';
+import ToDoList from './components/toDoList';
+import LoadingComponent from './components/loading';
+import TipsBox from './components/tips';
+
+
+console.log(LoadingComponent);
+
+//设置cookie
+document.cookie = 'name = wanpan'
+
+export default class App extends Component {
+
+    state = {
+        loading: false,
+        tips: {
+            tips: false,
+            msg: ''
+        },
+        navbarChecked: '001'
+    }
+
+    componentDidMount() {
+
+        //提示窗消息订阅
+        PubSub.subscribe('tipsDIsplay', (_, obj) => {
+            this.setState({ tips: { tips: obj.tips, msg: obj.msg } });
+            setTimeout(() => {
+                this.setState({ tips: { tips: false, msg: '' } });
+            }, 500);
+        })
+
+        //加载动画消息订阅
+        PubSub.subscribe('loading', (_, obj) => {
+            this.setState({ loading: obj.loading });
+        })
+    }
+
+    render() {
+        const { loading, tips, navbarChecked } = this.state
+        return (
+            <div className="app_model">
+                <div className="app_head">
+                    <NavBar toggleAppContainer={this.toggleAppContainer} />
+                </div>
+                <div className="app_container">
+                    {
+                        navbarChecked === '001' ?
+                            <ToDoList />
+                            :
+                            navbarChecked === '002' ?
+                                <div>002</div>
+                                :
+                                navbarChecked === '003' ?
+                                    <div>003</div>
+                                    :
+                                    <div>004</div>
+                    }
+                </div>
+                { loading ? <LoadingComponent /> : ''}
+                { tips.tips ? <TipsBox msg={tips.msg} /> : ''}
+            </div>
+        )
+    }
+
+    toggleAppContainer = (itme) => {
+        this.setState({ navbarChecked: itme.id })
+    }
+
+
 }
-
-export default connect(
-  (state) => {
-    return { ...state };
-  },
-  (dispatch) => {
-    return { dispatch };
-  },
-)(App);

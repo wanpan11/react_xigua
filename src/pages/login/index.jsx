@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { setUrl } from '../../config/router.config'
 import styles from './index.module.scss'
 import { MyinputAnimeta, Mybutton, Tips } from '../../components'
-import { smarteTool } from '../../util/smarteTool.js'
+import smarteTool from '../../util/smarteTool.js'
 import axios from 'axios'
 import '../../request/api'
 

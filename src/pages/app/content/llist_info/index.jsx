@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import store from '../../../../redux/store'
 import PubSub from 'pubsub-js'
-import { smarteTool } from '../../../../util/smarteTool.js'
+import smarteTool from '../../../../util/smarteTool.js'
 // import styles from './index.module.scss'
 import { Mycard } from '../../../../components'
 

@@ -1,11 +1,15 @@
-import { createStore /* applyMiddleware */ } from 'redux';
-import reducers from './reducers';
-// import thunk from 'redux-thunk';
+/* 引入核心依赖 */
+import { createStore, combineReducers } from 'redux';
 
-/* 使用中间件 */
-// const store = createStore(reducers, applyMiddleware(thunk))
+/* 引入reducer */
+import themeReducre from './theme_reducre'
+import sidebarReducre from './sidebar_reducre'
 
-/* 不使用中间件 */
-const store = createStore(reducers);
+/* 合并多个 reducre */
+const reducer = combineReducers({
+    themeReducre,
+    sidebarReducre
+})
 
-export default store;
+export default createStore(reducer)
+

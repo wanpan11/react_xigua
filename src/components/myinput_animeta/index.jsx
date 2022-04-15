@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import styles from './index.module.scss'
-import { smarteTool } from '../../util/smarteTool.js'
+import smarteTool from '../../util/smarteTool.js'
 
 export default class MyinputAnimeta extends Component {
 
