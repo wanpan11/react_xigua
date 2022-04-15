@@ -1,80 +1,34 @@
 //引入依赖
-import React, { Component } from 'react';
-import PubSub from 'pubsub-js'
+import React from "react"
+import { BrowserRouter } from 'react-router-dom'
+import { Pages } from './config/router.config'
 
-//引入样式、工具包
-
-
-
-//引入组件
-import NavBar from './components/navbar';
-import ToDoList from './components/toDoList';
-import LoadingComponent from './components/loading';
-import TipsBox from './components/tips';
-
-
-console.log(LoadingComponent);
-
-//设置cookie
-document.cookie = 'name = wanpan'
-
-export default class App extends Component {
+export default class App3 extends React.Component {
 
     state = {
-        loading: false,
-        tips: {
-            tips: false,
-            msg: ''
-        },
-        navbarChecked: '001'
+        height: '0',
     }
 
     componentDidMount() {
-
-        //提示窗消息订阅
-        PubSub.subscribe('tipsDIsplay', (_, obj) => {
-            this.setState({ tips: { tips: obj.tips, msg: obj.msg } });
-            setTimeout(() => {
-                this.setState({ tips: { tips: false, msg: '' } });
-            }, 500);
-        })
-
-        //加载动画消息订阅
-        PubSub.subscribe('loading', (_, obj) => {
-            this.setState({ loading: obj.loading });
-        })
+        /* 固定页面高度 */
+        const innerHeight = window.innerHeight + 'px'
+        this.setState({ height: innerHeight });
+        window.onresize = () => {
+            const innerHeight = window.innerHeight + 'px'
+            this.setState({ height: innerHeight });
+        }
     }
 
     render() {
-        const { loading, tips, navbarChecked } = this.state
+        const { height } = this.state
         return (
-            <div className="app_model">
-                <div className="app_head">
-                    <NavBar toggleAppContainer={this.toggleAppContainer} />
+            <BrowserRouter>
+                <div style={{ height: height }} id="app">
+                    <Pages></Pages>
                 </div>
-                <div className="app_container">
-                    {
-                        navbarChecked === '001' ?
-                            <ToDoList />
-                            :
-                            navbarChecked === '002' ?
-                                <div>002</div>
-                                :
-                                navbarChecked === '003' ?
-                                    <div>003</div>
-                                    :
-                                    <div>004</div>
-                    }
-                </div>
-                { loading ? <LoadingComponent /> : ''}
-                { tips.tips ? <TipsBox msg={tips.msg} /> : ''}
-            </div>
+            </BrowserRouter>
         )
     }
 
-    toggleAppContainer = (itme) => {
-        this.setState({ navbarChecked: itme.id })
-    }
-
-
 }
+
