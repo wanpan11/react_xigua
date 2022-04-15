@@ -1,0 +1,15 @@
+{
+  "name": "node_express",
+  "version": "1.0.0",
+  "description": "express test",
+  "main": "index.js",
+  "repository": "https://gitee.com/wanpan_11/node_express.git",
+  "author": "Wanp <wanpan96@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node ./index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
