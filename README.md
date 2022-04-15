@@ -2,21 +2,21 @@
 
 ---
 
-```
-//安装依赖
-yarn
+- 安装依赖
 
-//react运行
-yarn start
+  - yarn
 
-//mock 模拟数据 src\request\api.js 配置请求URL
+---
 
-//模拟数据 mock运行 新开终端运行
-//yarn mock
+- react 运行
 
+  - yarn start
 
-//分支
-master: 项目部署分支
-test: react全家桶demo
+---
 
-```
+- mock 模拟数据 src\request\api.js 配置请求 URL
+
+---
+
+- 模拟数据 mock 运行 新开终端运行
+  - yarn mock
